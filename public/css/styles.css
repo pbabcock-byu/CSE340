@@ -4,3 +4,120 @@
 *:after {
   box-sizing: border-box;
 }
+
+
+:root {
+
+
+
+
+  --bodybackground-color: darkgray;
+  --primaryblocks-color:#295982;
+  --secondaryblocks-color:#AEBEBE;;
+
+  --infoblocks-color:	#D6DBDB;
+
+  --primary-color:#FCF6F5FF;
+  --secondary-color: #466EC3;
+
+  --mbfbackground-color:#98c1d9; 
+    
+  --primarytxt-color: #293241;
+  --secondarytxt-color:rgb(255, 255, 255);
+  --infotxt-color: brown;
+
+  --textbackground-color: #D6DBDB;
+
+
+
+  /* Possible Fonts to use on page */
+  --heading-font: "Merriweather", serif;
+  /*--heading-font: "Verdana", Geneva, sans-serif;  */
+  --paragraph-font: "Georgia", Times;
+  --link-font: "Verdana", Geneva, sans-serif;
+}
+
+/* formating the main points listed  */
+.mainreviewdata li {
+  padding: 0.5%;
+}
+
+
+
+/* Nav links  */
+
+.primarynavbar {
+  background-color: #293241;
+  text-align: center;
+  margin: 0%;
+  margin-top: 10px;
+  align-content: left;
+}
+
+.primarynavbar li {
+  display: inline-block;
+  color:var(--secondarytxt-color);
+  font-size: 200%;
+  padding: 5%;
+  list-style-type: none;
+  line-height: 0.5em;
+}
+
+
+/* CSE motors main image*/
+.mainrepimg img {
+  width: 100%;
+}
+
+.mainrepimg_float {
+  padding: 0%;
+  border: 1px solid black;
+  width: 25%;
+  position: absolute;
+  top: 500px;
+  left: 30px;
+  background-color: whitesmoke;
+  opacity: 0.9;
+
+}
+.mainrepimg_float h5 {
+  color: rgb(38, 111, 207);
+  font-size:100%;
+  padding: 0%;
+}
+.mainrepimg_float p {
+  color: rgb(38, 111, 207);
+  font-size:100%;
+  padding: 0%;
+}
+
+/* CSE upgrade images and table updates */
+
+
+.mainimgtable  {
+  width: 100%;
+  align-content: center;
+  padding: 3%;
+}
+
+table.mainimgtable img {
+  align-items: right;
+  width: 30%;
+}
+
+
+
+table.mainimgtable th.uppic  {
+  background-color: aqua;
+  border: 1px solid black;
+  vertical-align: middle;
+  padding-top: 2%;
+  padding-bottom: 2%;
+
+}
+
+table.mainimgtable th.uptxt  {
+  vertical-align: text-top;
+  padding-bottom: 5%;
+  font-size:300%;
+}
