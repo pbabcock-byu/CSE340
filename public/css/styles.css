@@ -39,9 +39,19 @@
   --link-font: "Verdana", Geneva, sans-serif;
 }
 
+h1,h2,h3,h4,h5,th,p, a href, li{
+  font-size: 50%;
+}
+
+
+/* formating the header links */
+
+#top-header a {
+  text-decoration: none;
+}
 
 .siteName {
-  font-size: xx-large;
+  font-size: 50px;
   font-weight: bolder;
 }
 
@@ -50,6 +60,8 @@
   text-align: right;
   align-items: flex-end;
 }
+
+
 
 /* formating the main points listed  */
 .mainreviewdata li {
@@ -72,8 +84,8 @@
 .primarynavbar li {
   display: inline-block;
   color:var(--secondarytxt-color);
-  font-size: 200%;
-  padding: 5%;
+  font-size: 50%;
+  padding: 0%;
   list-style-type: none;
   line-height: 0.5em;
 }
@@ -95,6 +107,7 @@
   background-color: whitesmoke;
   opacity: 0.9;
   color: rgb(38, 111, 207);
+  font-size: 50%;
 } 
 
 .mainimage img {
@@ -114,27 +127,24 @@
 .mainimgtable  {
   width: 100%;
   align-content: center;
-  padding: 3%;
 }
 
 table.mainimgtable img {
   align-items: right;
-  width: 30%;
 }
-
 
 
 table.mainimgtable th.uppic  {
   background-color: aqua;
   border: 1px solid black;
-  vertical-align: middle;
-  padding-top: 2%;
-  padding-bottom: 2%;
 
 }
 
 table.mainimgtable th.uptxt  {
   vertical-align: text-top;
-  padding-bottom: 5%;
-  font-size:300%;
+  padding-bottom: 2%;
+}
+
+table.mainimgtable th {
+  border:5%;
 }
