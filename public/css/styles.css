@@ -65,31 +65,29 @@
 
 
 /* CSE motors main image*/
-.mainrepimg img {
+
+.containerdiv { float: left; position: relative; } 
+.cornerimage { 
+  position: absolute; 
+  top: 1cm; 
+  left: 5%; 
+  width: 20%;
+  border: 1px solid black;
+  background-color: whitesmoke;
+  opacity: 0.9;
+  color: rgb(38, 111, 207);
+} 
+
+.mainimage img {
   width: 100%;
 }
 
-.mainrepimg_float {
-  padding: 0%;
-  border: 1px solid black;
-  width: 25%;
-  position: absolute;
-  top: 500px;
-  left: 30px;
-  background-color: whitesmoke;
-  opacity: 0.9;
+.cornerimage img {
+   width: 80%;
+}
 
-}
-.mainrepimg_float h5 {
-  color: rgb(38, 111, 207);
-  font-size:100%;
-  padding: 0%;
-}
-.mainrepimg_float p {
-  color: rgb(38, 111, 207);
-  font-size:100%;
-  padding: 0%;
-}
+
+ 
 
 /* CSE upgrade images and table updates */
 
