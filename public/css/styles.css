@@ -51,7 +51,7 @@ h1,h2,h3,h4,h5,th,p, a href, li{
 }
 
 .siteName {
-  font-size: 50px;
+  font-size: 20px;
   font-weight: bolder;
 }
 
@@ -78,7 +78,6 @@ h1,h2,h3,h4,h5,th,p, a href, li{
   text-align: center;
   margin: 0%;
   margin-top: 10px;
-  align-content: left;
 }
 
 .primarynavbar li {
@@ -129,9 +128,7 @@ h1,h2,h3,h4,h5,th,p, a href, li{
   align-content: center;
 }
 
-table.mainimgtable img {
-  align-items: right;
-}
+
 
 
 table.mainimgtable th.uppic  {
