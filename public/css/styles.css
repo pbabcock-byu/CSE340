@@ -47,7 +47,7 @@
 }
 
 .siteName {
-  font-size: 20px;
+
   font-weight: bolder;
 }
 
@@ -75,8 +75,7 @@
 .primarynavbar li {
   display: inline-block;
   color:var(--secondarytxt-color);
-  font-size: 20px;
-  padding: 0%;
+  padding-right: 2%;
   list-style-type: none;
   line-height: 0.5em;
 }
@@ -93,12 +92,13 @@
   position: absolute; 
   top: 3cm; 
   left: 5%; 
-  width: 20%;
+  width: 25%;
   border: 1px solid black;
   background-color: whitesmoke;
   opacity: 0.9;
   color: rgb(38, 111, 207);
-  font-size: 20px;
+  font-size: x-large;
+  
 } 
 
 .mainimage img {
@@ -132,5 +132,6 @@ table.mainimgtable th.uptxt  {
 table.mainimgtable th {
   border:5%;
 }
+
 
 
