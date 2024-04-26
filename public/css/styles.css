@@ -1,3 +1,5 @@
+
+
 /*  pnpm run start - to start the server then open browser and put in http://localhost:5500/ */
 
 /******* Change Box Model ***************/
@@ -7,7 +9,6 @@
 *:after {
   box-sizing: border-box;
 }
-
 
 :root {
 
@@ -34,10 +35,6 @@
   --paragraph-font: "Georgia", Times;
   --link-font: "Verdana", Geneva, sans-serif;
 }
-
-
-
-
 
 
 /* formating the header links */
@@ -78,6 +75,7 @@
   padding-right: 2%;
   list-style-type: none;
   line-height: 0.5em;
+  font-size: xx-large;
 }
 
 
@@ -97,7 +95,7 @@
   background-color: whitesmoke;
   opacity: 0.9;
   color: rgb(38, 111, 207);
-  font-size: x-large;
+  /* font-size: x-large; */
   
 } 
 
@@ -129,9 +127,69 @@ table.mainimgtable th.uptxt  {
   padding-bottom: 2%;
 }
 
-table.mainimgtable th {
-  border:5%;
+
+@media only screen and (min-width: 650px) { 
+
+  body {
+      background-image: url("/images/site/small_check.jpg");
+      margin: 0;
+      padding: 1em 0;
+  }
+  #wrapper {
+      max-width: 700px;
+      margin: 0 auto;
+      border: 5px solid blue;
+      border-radius: 8px;
+      background-color: white;
+  }
+    
+
+  h1,h2,h3,h4,h5,th,p, a href, li {
+      font-size: 100%;
+  }
+
+  .siteName {
+      font-size: 50px;
+    }
+
+/* Nav links  */
+
+.primarynavbar li {
+font-size: 150%;
+padding: 5%;
 }
 
+/* CSE motors main image*/
+
+.containerdiv { 
+  /*float: left; */
+  position: relative; 
+}
+
+.cornerimage { 
+font-size: 100%;
+} 
+
+.mainreviewdata {
+  float: right;  
+}
+
+
+.mainreviewdata li {   
+  padding-bottom: 5%;
+  text-align: left;
+  font-size: 105%;
+  
+}
+
+.mainimgtable, .mainupgrades h2 {
+  width: 40%;
+  padding-left: 5%;
+
+}
+
+
+
+}
 
 
