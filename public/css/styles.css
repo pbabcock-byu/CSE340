@@ -1,6 +1,7 @@
-/*  pnpm run start - to start the server then open browser and put in http://localhost:5500/*/
+/*  pnpm run start - to start the server then open browser and put in http://localhost:5500/ */
 
 /******* Change Box Model ***************/
+
 *,
 *:before,
 *:after {
@@ -9,9 +10,6 @@
 
 
 :root {
-
-
-
 
   --bodybackground-color: darkgray;
   --primaryblocks-color:#295982;
@@ -31,17 +29,15 @@
   --textbackground-color: #D6DBDB;
 
 
-
   /* Possible Fonts to use on page */
   --heading-font: "Merriweather", serif;
-  /*--heading-font: "Verdana", Geneva, sans-serif;  */
   --paragraph-font: "Georgia", Times;
   --link-font: "Verdana", Geneva, sans-serif;
 }
 
-h1,h2,h3,h4,h5,th,p, a href, li{
-  font-size: 50%;
-}
+
+
+
 
 
 /* formating the header links */
@@ -61,14 +57,10 @@ h1,h2,h3,h4,h5,th,p, a href, li{
   align-items: flex-end;
 }
 
-
-
 /* formating the main points listed  */
 .mainreviewdata li {
   padding: 0.5%;
 }
-
-
 
 
 /* Nav links  */
@@ -83,7 +75,7 @@ h1,h2,h3,h4,h5,th,p, a href, li{
 .primarynavbar li {
   display: inline-block;
   color:var(--secondarytxt-color);
-  font-size: 50%;
+  font-size: 20px;
   padding: 0%;
   list-style-type: none;
   line-height: 0.5em;
@@ -106,7 +98,7 @@ h1,h2,h3,h4,h5,th,p, a href, li{
   background-color: whitesmoke;
   opacity: 0.9;
   color: rgb(38, 111, 207);
-  font-size: 50%;
+  font-size: 20px;
 } 
 
 .mainimage img {
@@ -117,24 +109,19 @@ h1,h2,h3,h4,h5,th,p, a href, li{
    width: 80%;
 }
 
-
- 
-
 /* CSE upgrade images and table updates */
-
-
 .mainimgtable  {
   width: 100%;
   align-content: center;
 }
 
-
-
+table.mainimgtable th.uppic img  {
+  width: 50%;
+}
 
 table.mainimgtable th.uppic  {
   background-color: aqua;
   border: 1px solid black;
-
 }
 
 table.mainimgtable th.uptxt  {
@@ -147,67 +134,3 @@ table.mainimgtable th {
 }
 
 
-
-@media only screen and (min-width: 650px) {
-
-  body {
-      background-image: url("/images/site/small_check.jpg");
-      margin: 0;
-      padding: 1em 0;
-  }
-  #wrapper {
-      max-width: 700px;
-      margin: 0 auto;
-      border: 5px solid blue;
-      border-radius: 8px;
-      background-color: white;
-  }
-    
-
-  h1,h2,h3,h4,h5,th,p, a href, li {
-      font-size: 100%;
-  }
-
-  .siteName {
-      font-size: 50px;
-    }
-
-/* Nav links  */
-
-.primarynavbar li {
-font-size: 150%;
-padding: 5%;
-}
-
-/* CSE motors main image*/
-
-.containerdiv { 
-  /*float: left; */
-  position: relative; 
-}
-
-.cornerimage { 
-font-size: 100%;
-} 
-
-.mainreviewdata {
-  float: right;  
-}
-
-
-.mainreviewdata li {   
-  padding-bottom: 5%;
-  text-align: left;
-  font-size: 105%;
-  
-}
-
-.mainimgtable, .mainupgrades h2 {
-  width: 40%;
-  padding-left: 5%;
-
-}
-
-
-
-}
