@@ -66,18 +66,21 @@ h1,h2,h3,h4,h5,th, a href {
 
 /* Nav links  */
 
-.primarynavbar {
+/* .primarynavbar */ 
+nav{
   background-color: #293241;
   text-align: center;
-  margin: 0%;
+  margin: 1%;
   margin-top: 10px;
 
 }
 
-.primarynavbar li {
+/*.primarynavbar li */
+nav li {
   display: inline-block;
-  color:var(--secondarytxt-color);
-  padding-right: 2%;
+  color:var(--primary-color);
+  color: white;
+  padding: 2%;
   list-style-type: none;
   line-height: 0.5em;
 
@@ -159,8 +162,8 @@ table.mainimgtable th.uptxt  {
 
 /* Nav links  */
 
-.primarynavbar li {
-font-size: 150%;
+nav li {
+font-size: 100%;
 padding: 5%;
 }
 
