@@ -16,7 +16,7 @@ if (process.env.NODE_ENV == "development") {
 })
 
 // Added for troubleshooting queries
-// during development
+// during development 
 module.exports = {
   async query(text, params) {
     try {
@@ -27,11 +27,11 @@ module.exports = {
       console.error("error in query", { text })
       throw error
     }
-  },
+  }, 
 }
 } else {
   pool = new Pool({
-    connectionString: process.env.DATABASE_URL + "?ssl=true",
+    connectionString: process.env.DATABASE_URL ,
   })
   module.exports = pool
 }
