@@ -1,0 +1,13 @@
+// Not sure if this is right
+// https://blainerobertson.github.io/340-js/views/basic-errors.html
+// read Build the Error View
+
+
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+<%- messages() %>
+

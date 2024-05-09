@@ -76,7 +76,7 @@ nav{
 }
 
 /*.primarynavbar li */
-nav li {
+nav li, nav a {
   display: inline-block;
   color:var(--primary-color);
   color: white;
