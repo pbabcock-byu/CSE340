@@ -3,12 +3,13 @@
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Open index.ejs",
-            "file": "c:\\Users\\peter\\OneDrive\\Desktop\\CSE340 Web Backend Development Apr 2024\\CSE340\\views\\index.ejs"
-        }
-    ]
+    "configurations": [{
+        "name": "Launch CSE Motors",
+        "program": "${workspaceFolder}/server.js",
+        "request": "launch",
+        "skipFiles": [
+            "<node_internals>/**"
+        ],
+        "type": "node"
+    }    ]
 }
