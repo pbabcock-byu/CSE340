@@ -28,7 +28,7 @@
   --infotxt-color: brown;
 
   --textbackground-color: #D6DBDB;
-
+  --primaryboarders: black;
 
   /* Possible Fonts to use on page */
   --heading-font: "Merriweather", serif;
@@ -36,9 +36,9 @@
   --link-font: "Verdana", Geneva, sans-serif;
 }
 
-h1,h2,h3,h4,h5,th, a href {
+/*h1,h2,h3,h4,h5,th, a href {
   font-size: 100%;
-}
+}*/
 
 
 /* formating the header links */
@@ -68,7 +68,7 @@ h1,h2,h3,h4,h5,th, a href {
 
 /* .primarynavbar */ 
 nav{
-  background-color: #293241;
+  background-color: var(--primaryblocks-color);
   text-align: center;
   margin: 1%;
   margin-top: 10px;
@@ -85,7 +85,10 @@ nav li, nav a {
   line-height: 0.5em;
 
 }
-
+nav a:hover {
+  color: pink;
+  transform: scale(1.03);
+}
 
 /* CSE motors main image*/
 
@@ -99,7 +102,7 @@ nav li, nav a {
   top: 3cm; 
   left: 5%; 
   width: 25%;
-  border: 1px solid black;
+  border: 1px solid var(--primaryboarders);
   background-color: whitesmoke;
   opacity: 0.9;
   color: rgb(38, 111, 207);
@@ -127,13 +130,44 @@ table.mainimgtable th.uppic img  {
 
 table.mainimgtable th.uppic  {
   background-color: aqua;
-  border: 1px solid black;
+  border: 1px solid var(--primaryboarders);
 }
 
 table.mainimgtable th.uptxt  {
   vertical-align: text-top;
   padding-bottom: 2%;
 }
+
+
+/*  Vehicles Details   */
+
+#det-invimg img {
+  width: 100%;
+  border: 5px solid var(--primaryboarders);
+  border-radius: 10px;
+
+}
+#det-invprice, #det-invmiles, #det-invcolor {
+  text-align: center;
+  background-color: var(--secondaryblocks-color);
+  color: var(--primarytxt-color);
+  padding: 0.5rem;
+  border: 2px solid var(--primaryboarders);
+}
+
+#det-invdescription {
+  margin: -1rem 1rem 2rem 1rem  ;
+  font-size: 1.1rem;
+}
+
+#det-invdescriptionhead {
+  text-align: center;
+  text-decoration: underline;
+}
+
+
+
+
 
 
 @media only screen and (min-width: 700px) { 
@@ -196,8 +230,23 @@ font-size: 100%;
 
 }
 
+/*  Vehicles Details   */
+#det-invdisplay {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  column-gap: 1rem;
+}
+
+
+#det-invdetails {
+  margin-top: -1rem;
+
+}
+
 
 
 }
+
 
 

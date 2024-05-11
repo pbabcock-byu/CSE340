@@ -19,4 +19,26 @@ invCont.buildByClassificationId = async function (req, res, next) {
   })
 }
 
+/* ***************************
+ *  Assignment 3 a controller function, which is part of the inventory controller,
+ *  Build inventory by classification view
+ * ************************** */
+
+invCont.buildByInventoryId = async function(req, res, next) {
+    const inventoryId = req.params.inventoryId
+    const data = await invModel.getInventoryByInventoryId(inventoryId)
+    const grid = await utilities.buildDetailGrid(data)
+    let nav = await utilities.getNav()
+    const vehmake = data.inv_make 
+    const vehmodel = data.inv_model 
+
+    res.render("./inventory/detail", {
+        title: vehmake + " " + vehmodel ,
+        nav,
+        grid,
+    })
+}
+
+
+
 module.exports = invCont

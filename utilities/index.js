@@ -37,6 +37,7 @@ module.exports = Util
 /* **************************************
 * Build the classification view HTML
 * ************************************ */
+
 Util.buildClassificationGrid = async function(data){
   let grid
   if(data.length > 0){
@@ -67,3 +68,38 @@ Util.buildClassificationGrid = async function(data){
   return grid
 }
 
+
+
+/* **************************************
+* Assignment 3 
+* file that will take the specific vehicle's information and wrap it up in HTML to deliver to the view
+* ************************************ */
+
+Util.buildDetailGrid = async function(data) {
+  let grid
+  grid = `<h1>Car make: ${data.inv_make}</h1>`
+  return grid
+}
+
+Util.buildDetailGrid = async function(data) {
+  let grid
+  grid = `
+  <div id="det-invdisplay"> 
+    <div id="det-invimg">
+      <img src="${data.inv_image}" alt="Image of ${data.inv_make} ${data.inv_model}">
+    </div>
+    <div id="det-invdetails">
+      <h2 id="det-invsubtitle">${data.inv_year} ${data.inv_make} ${data.inv_model} Details</h2>
+      <span id="det-invmiles">Mileage: ${data.inv_miles.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
+      <span id="det-invcolor">Color: ${data.inv_color.charAt(0).toUpperCase()}${data.inv_color.slice(1).toLowerCase()}</span>
+      <h3 id="det-invdescriptionhead">Description</h3> 
+      <p id="det-invdescription"> ${data.inv_description}</p>
+
+      <span id="det-invprice">No-Haggle Price: $${new Intl.NumberFormat('en-US').format(data.inv_price)}</span>
+    </div>
+  </div>
+  `
+
+
+  return grid
+  }
