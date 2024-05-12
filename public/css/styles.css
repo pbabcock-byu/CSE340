@@ -45,11 +45,14 @@
 
 #top-header a {
   text-decoration: none;
+  color: var(--primaryblocks-color);
+  padding: 20px;
 }
 
 .siteName {
-
   font-weight: bolder;
+  font-size: 3rem;
+  font-family: var(--heading-font);
 }
 
 #tools {
@@ -91,6 +94,10 @@ nav a:hover {
 }
 
 /* CSE motors main image*/
+
+main h1 {
+  text-align: center;
+  } 
 
 .containerdiv { 
   /*float: left; */
@@ -167,7 +174,11 @@ table.mainimgtable th.uptxt  {
 
 
 
-
+/*  Vehicles Details   */
+#det-invdetails {
+  display: flex;
+  flex-direction: column;
+}
 
 
 @media only screen and (min-width: 700px) { 
@@ -175,10 +186,10 @@ table.mainimgtable th.uptxt  {
   body {
       background-image: url("/images/site/small_check.jpg");
       margin: 0;
-      padding: 1em 0;
+      padding: 0;
   }
   #wrapper {
-      max-width: 700px;
+      max-width: 960px;
       margin: 0 auto;
       border: 5px solid blue;
       border-radius: 8px;
@@ -235,13 +246,13 @@ font-size: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
-  column-gap: 1rem;
+  column-gap: 0.5rem;
 }
 
 
 #det-invdetails {
-  margin-top: -1rem;
-
+  display: grid;
+  grid-column: 2/3;
 }
 
 
