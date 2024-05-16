@@ -241,7 +241,19 @@ input {
   border: 2px solid #212529;
 }
 
+/* Styling valid/invalid inputs using CSS */ 
+input:required:invalid, input:focus:invalid {
+ background-color: rgb(245, 156, 156);
+ background-position: right top;
+ background-repeat: no-repeat;
+}
 
+
+input:required:valid {
+
+background-position: right top;
+background-repeat: no-repeat;
+}
 
 
 @media only screen and (min-width: 700px) { 

@@ -3,7 +3,6 @@ const accountModel = require("../models/account-model")
 
 const accountController = {}
 
-
 /* this is for the login page*/
 accountController.buildLogin = async function (req, res, next) {
     let nav = await utilities.getNav();

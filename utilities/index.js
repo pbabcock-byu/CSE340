@@ -119,14 +119,14 @@ Util.buildLogin = async function() {
   <div id="login_box">
   <form>
     <label class="login_labels">Email:
-      <input type="email" name="account_email" placeholder="your_email@example.com" required>
+      <input type="email" name="account_email" placeholder="your_email@example.com"  pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
     </label>
     <div class="input-group">
       <label for="account_password">Password</label>
-      <input type="password" id="account_password" class="form-control" name="account_password" />
+      <input type="password" id="account_password" class="form-control" name="account_password" pattern="(?=^.{12,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" />
       <button type="button" id="btnToggle" class="show-password" class="toggle">Show Pasword<i id="showpassword" class="showpassword"></i></button>
     </div>
-    <button type="submit" class="btn">Login</button>
+    <button type="submit" id = "loginbtn" class="btn">Login</button>
   </form>
   <a href="/account/register">No Account? <U>Sign-up</U></a>
   </div>
@@ -150,22 +150,20 @@ Util.buildRegister = async function() {
         <input type="text" name="account_lastname" required>
       </label>
       <label>Email 
-        <input type="email" name="account_email" placeholder="your_email@example.com" required>
+        <input type="email" name="account_email" placeholder="your_email@example.com"  pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
       </label>
  
       <div class="input-group">
         <label for="account_password">Password</label>
-        <input type="password" id="account_password" class="form-control" name="account_password" />
+        <input type="password" id="account_password" class="form-control" name="account_password" pattern="(?=^.{12,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" />
         <button type="button" id="btnToggle" class="show-password" class="toggle">Show Pasword<i id="showpassword" class="showpassword"></i></button>
       </div>
 
-      <button type="submit" class="btn">Register</button>
+      <button type="submit" id = "registrationbtn"class="btn">Register</button>
     </form>
-
   </div>
   `
   return grid
 }
-
 
 Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
