@@ -173,12 +173,75 @@ table.mainimgtable th.uptxt  {
 }
 
 
-
 /*  Vehicles Details   */
 #det-invdetails {
   display: flex;
   flex-direction: column;
 }
+
+/*  Login page + Registration   */
+
+#login_box {
+  background-color:var(--secondaryblocks-color);
+  padding: 1.5rem 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 85%;
+  margin: 0 auto;
+}
+
+.btn {
+  display: inline-block;
+  background: blue;
+  border: 3px solid darken( black, 5%);
+  padding: .5em 2em;
+  color: white;
+  margin-right: .5em;
+}
+.btn :hover {
+  background-color :pink;
+}
+.btn :active {
+    background: yellow; 
+    box-shadow: inset 0px 1px 1px fadeout(black, 90%); 
+  }
+.btn :focus {
+    outline: none;
+  }
+
+
+form {
+  display: block;
+  width: 100%;
+  padding: 2em;
+}
+
+input {
+  display: block;
+  margin: auto auto;
+  width: 100%;
+  margin-bottom: 2em;
+  padding: .5em 0;
+  border: none;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 1.25em;
+  color: #757575;
+  &:focus {
+    outline: none;
+  }
+}
+
+
+.show-password {
+
+  margin-bottom: 1rem;
+  background-color:white;
+  padding: 0.5em;
+  border-radius: 15px 15px;
+  border: 2px solid #212529;
+}
+
+
 
 
 @media only screen and (min-width: 700px) { 
