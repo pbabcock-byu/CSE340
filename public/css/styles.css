@@ -193,7 +193,6 @@ table.mainimgtable th.uptxt  {
 .btn {
   display: inline-block;
   background: blue;
-  border: 3px solid darken( black, 5%);
   padding: .5em 2em;
   color: white;
   margin-right: .5em;
@@ -201,13 +200,6 @@ table.mainimgtable th.uptxt  {
 .btn :hover {
   background-color :pink;
 }
-.btn :active {
-    background: yellow; 
-    box-shadow: inset 0px 1px 1px fadeout(black, 90%); 
-  }
-.btn :focus {
-    outline: none;
-  }
 
 
 form {
@@ -226,11 +218,8 @@ input {
   border-bottom: 1px solid #eaeaea;
   padding-bottom: 1.25em;
   color: #757575;
-  &:focus {
-    outline: none;
-  }
-}
 
+}
 
 .show-password {
 

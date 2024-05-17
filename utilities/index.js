@@ -123,7 +123,7 @@ Util.buildLogin = async function() {
     </label>
     <div class="input-group">
       <label for="account_password">Password</label>
-      <input type="password" id="account_password" class="form-control" name="account_password" pattern="(?=^.{12,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" />
+      <input type="password" id="account_password" class="form-control" name="account_password" pattern="(?=^.{12,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
       <button type="button" id="btnToggle" class="show-password" class="toggle">Show Pasword<i id="showpassword" class="showpassword"></i></button>
     </div>
     <button type="submit" id = "loginbtn" class="btn">Login</button>
@@ -149,13 +149,14 @@ Util.buildRegister = async function() {
       <label>Last name
         <input type="text" name="account_lastname" required>
       </label>
-      <label>Email 
-        <input type="email" name="account_email" placeholder="your_email@example.com"  pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
-      </label>
- 
+      <label>Email </label>
+        <input type="email" name="account_email" placeholder="your_email@example.com"  required>
+      
       <div class="input-group">
         <label for="account_password">Password</label>
-        <input type="password" id="account_password" class="form-control" name="account_password" pattern="(?=^.{12,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" />
+        <span>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</span> 
+        <input type="password" id="account_password" class="form-control" name="account_password"  required>
+        /* pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" */
         <button type="button" id="btnToggle" class="show-password" class="toggle">Show Pasword<i id="showpassword" class="showpassword"></i></button>
       </div>
 
