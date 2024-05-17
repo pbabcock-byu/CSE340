@@ -69,7 +69,7 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 app.use("/inv", inventoryRoute)
 
 // Week 4 Enable the Account Route
-app.use("/account",require("./routes/accountRoute"))
+app.use("/account",accountRoute)
 
 
 

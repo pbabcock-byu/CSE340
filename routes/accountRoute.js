@@ -3,14 +3,15 @@
 
     const express = require("express")
     const router = new express.Router() 
-    const utilities = require("../utilities/")
     const accountController = require("../controllers/accountController")
+    const utilities = require("../utilities/")
+    
     //an accounts controller
     
        
     /* ****************************************
     *  Deliver login view
-    * *************************************** */
+    * *************************************** 
     async function buildLogin(req, res, next) {
         let nav = await utilities.getNav()
         res.render(".account/login", {
@@ -19,7 +20,7 @@
         })
       }
     module.exports = { buildLogin }
-    
+    */
     
     // week 4 Add a "GET" route for the path that will be sent when the "My Account" link is clicked.
     //The "GET" route must use a function from the account controller, to handle the request.

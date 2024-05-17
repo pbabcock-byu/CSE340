@@ -1,31 +1,27 @@
 const utilities = require('../utilities/')
 const accountModel = require("../models/account-model")
 
-const accountController = {}
+/* const accountController = {} */
 
 /* this is for the login page*/
-accountController.buildLogin = async function (req, res, next) {
+async function buildLogin(req, res, next) {
     let nav = await utilities.getNav();
-    const grid = await utilities.buildLogin();
-    res.render("./account/login", {
+    //const grid = await utilities.buildLogin();
+    res.render("account/login", {
         title: "Login",
         nav,
-        grid,
     });
 }
 
 /* this is for the registration page*/
-accountController.buildRegister = async function (req, res, next) {
+async function buildRegister(req, res, next) {
     let nav = await utilities.getNav()
-    const grid = await utilities.buildRegister();
-    
-    res.render("./account/register", {
+    //const grid = await utilities.buildRegister();
+    res.render("account/register", {
       title: "Registration",
       nav,
-      grid,
     })
   }
-
 
   
 /* ****************************************
@@ -60,6 +56,4 @@ async function registerAccount(req, res) {
   }
 }
 
-
-
-module.exports = accountController
+module.exports = {buildLogin,buildRegister,registerAccount}

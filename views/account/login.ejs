@@ -5,5 +5,22 @@
     } %>
 
 <%- messages() %>
-<%- grid %>
+
+
+  <div id="login_box">
+  <form>
+    <label class="login_labels">Email:
+      <input type="email" name="account_email" placeholder="your_email@example.com"  pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+    </label>
+    <div class="input-group">
+      <label for="account_password">Password</label>
+      <input type="password" id="account_password" class="form-control" name="account_password" pattern="(?=^.{12,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
+      <button type="button" id="btnToggle" class="show-password" class="toggle">Show Pasword<i id="showpassword" class="showpassword"></i></button>
+    </div>
+    <button type="submit" id = "loginbtn" class="btn">Login</button>
+  </form>
+  <a href="/account/register">No Account? <U>Sign-up</U></a>
+  </div>
+
+
 <script src='/js/script.js'></script>
