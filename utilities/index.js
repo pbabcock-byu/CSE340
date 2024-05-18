@@ -93,12 +93,31 @@ Util.buildDetailGrid = async function(data) {
   </div>
   `
 
-  
-
   return grid
   }
 
+/* **************************************
+* Assignment 4 tasks 3 
+* This builds the list for  buildClassificationSelect for the add-invertory view
+* ************************************ */
 
+Util.buildClassificationSelect = async function (classification_id = null) {
+  let data = await invModel.getClassifications()
+  let classificationList
+
+  classificationList = `<select id="classification_id" name="classification_id" required>`
+    data.rows.forEach(element => {
+      classificationList += `<option value="` + element.classification_id + `"`
+      if (classification_id != null && element.classification_id == classification_id){
+        classificationList += ` selected`
+      }
+      classificationList += `>` + element.classification_name + `</option>`
+    });
+  classificationList += `</select>`
+
+  return classificationList
+}
+  
   
 /* ****************************************
  * Middleware For Handling Errors

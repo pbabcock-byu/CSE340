@@ -239,7 +239,6 @@ input:required:invalid, input:focus:invalid {
 
 
 input:required:valid {
-
 background-position: right top;
 background-repeat: no-repeat;
 }
@@ -248,6 +247,13 @@ background-repeat: no-repeat;
 /* tab links in */
 .links p,a{
  padding-left: 5%;
+}
+
+
+/* add imventory page */
+#inv_description {
+  height: 200px;
+  width: 100%;
 }
 
 @media only screen and (min-width: 700px) { 

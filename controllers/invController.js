@@ -4,8 +4,9 @@ const utilities = require("../utilities/")
 const invCont = {}
 
 /* ***************************
- *  Build inventory by classification view
- * ************************** */
+*  Assignment 
+*  Build inventory by classification view
+* ************************** */
 invCont.buildByClassificationId = async function (req, res, next) {
   const classification_id = req.params.classificationId
   const data = await invModel.getInventoryByClassificationId(classification_id)
@@ -20,9 +21,9 @@ invCont.buildByClassificationId = async function (req, res, next) {
 }
 
 /* ***************************
- *  Assignment 3 a controller function, which is part of the inventory controller,
- *  Build inventory by detail view
- * ************************** */
+*  Assignment 3 a controller function, which is part of the inventory controller,
+*  Build inventory by detail view
+* ************************** */
 
 invCont.buildByInventoryId = async function(req, res, next) {
     const inventoryId = req.params.inventoryId
@@ -43,7 +44,7 @@ invCont.buildByInventoryId = async function(req, res, next) {
 /* ***************************
 *   Assignment 4 :Task One 
 *   Create a new management view
- * ************************** */
+* ************************** */
 
 invCont.buildInventoryManager = async function(req, res, next){
   let nav = await utilities.getNav()
@@ -55,9 +56,9 @@ invCont.buildInventoryManager = async function(req, res, next){
 
 
 /* ***************************
- *  Assignment 4 :Task Two 
- *  Add Classification View
- * ************************** */
+*  Assignment 4 :Task Two 
+*  Add Classification View
+* ************************** */
 
 invCont.buildAddClassification = async function(req, res, next){
   let nav = await utilities.getNav()
@@ -68,10 +69,10 @@ invCont.buildAddClassification = async function(req, res, next){
   })
 }
 
-  /* ***************************
-  *  Assignment 4 :Task Two 
-  *  Add Classification to the DB , reload with new Classification in nav bar
-  * ************************** */
+/* ***************************
+*  Assignment 4 :Task Two 
+*  Check adding of classification , reload with new Classification in nav bar
+* ************************** */
 
 invCont.addClassification = async function(req, res){
   
@@ -98,21 +99,68 @@ invCont.addClassification = async function(req, res){
 }
 
 
-  /* ***************************
-  *  Assignment 4 :Task Three 
-  *  Add Inventory View
-  * ************************** */
+/* ***************************
+*  Assignment 4 :Task Three 
+*  Add Inventory View
+* ************************** */
 
 invCont.buildAddInventory = async function(req, res, next){
   let nav = await utilities.getNav()
+  let classificationSelect = await utilities.buildClassificationSelect()
+  
     res.render("inventory/add-inventory",{
       title: "Add New Inventory",
       nav,
+      classificationSelect,
       errors: null,
   })
 }
 
 
+  /* ***************************
+  *  Assignment 4 :Task Three 
+  *  Add new car details to the DB, check if successful , reload with new add invent
+  * ************************** */
 
+invCont.addInventory = async function(req, res){
+  const { inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id } = req.body
+  const invResult = await invModel.addInventory(
+    inv_make, 
+    inv_model, 
+    inv_year, 
+    inv_description, 
+    inv_image, 
+    inv_thumbnail, 
+    inv_price, 
+    inv_miles, 
+    inv_color,
+    classification_id
+  )
+
+  let nav = await utilities.getNav()
+
+  if (invResult) {
+    req.flash("notice",`Congratulations, a new car to the inventory.`)
+
+    let classificationSelect = await utilities.buildClassificationSelect()
+    
+    res.status(201).render("inventory/add-inventory", {
+      title: "Add Inventory",
+      nav,
+      classificationSelect,
+      errors: null,
+    })
+  } else {
+    let classificationSelect = await utilities.buildClassificationSelect(classification_id)
+
+    req.flash("notice", "Sorry, Your inventory could not be added.")
+    res.status(501).render("inventory/add-inventory", {
+      title: "Add Inventory",
+      nav,
+      classificationSelect,
+      errors: null,
+    })
+  }
+}
 
 module.exports = invCont
