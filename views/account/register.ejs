@@ -6,15 +6,15 @@
     res.redirect('/')
   } %>
 
-<%- messages() %>
+  <%- messages() %>
 
-<% if (errors) { %>
-  <ul class="notice">
- <% errors.array().forEach(error => { %>
-   <li><%= error.msg %></li>
-<%  }) %>
- </ul>
-<% } %>
+  <% if (errors) { %>
+    <ul class="notice">
+  <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+  <%  }) %>
+    </ul>
+  <% } %>
 
 </div>
 

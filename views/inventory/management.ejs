@@ -1,0 +1,18 @@
+<div>
+    <% if (title) { %>
+        <h1 id="login_form"><%= title %></h1>
+        <% } else {
+        res.redirect('/')
+    } %>
+
+    <%- messages() %>
+  
+</div>
+
+<!-- links to get to the inv management pages -->
+
+<div class="links">
+    <p><a href="../../inv/add-classification">Add New Classification</a></p>
+    <p><a href="../../inv/add-inventory">Add New Inventory</a></p>
+</div>
+  

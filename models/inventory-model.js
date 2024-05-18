@@ -44,9 +44,61 @@ async function getInventoryByInventoryId(inventory_id) {
 }
 
 
+/* ***************************
+ *  Assignment 4 : Task 2
+ *  a function to add the new Classification
+ * ************************** */
+
+async function addClassification(classification_name){
+  try {
+    const sql = 'INSERT INTO public.classification (classification_name) VALUES ($1) RETURNING *'
+    return await pool.query(sql, [classification_name])
+  } catch (error) {
+    return error.message
+  }
+}
+
+
+/* ***************************
+ *  Assignment 4 : Task 2
+ *  Check if checkExistingClassificationName
+ * ************************** */
+
+ async function getInventoryByInventoryId(inv_id) {
+  try {
+    const data = await pool.query(`SELECT * FROM public.inventory WHERE inv_id = $1`, [inv_id] )
+    return data.rows[0]
+  } catch (error) {
+    console.error("getInventoryByInventoryId error " + error)
+  }
+} 
+
+async function checkExistingClassificationName(classification_name){
+  try{
+    const data = "SELECT * FROM classification WHERE classification_name = $1"
+    const classification = await pool.query(data, [classification_name])
+    return classification.rowCount
+  } catch (error){
+    return error.message
+  }
+}
+
+
+/* ***************************
+ *  Assignment 4 : Task 3
+ *  
+ * ************************** 
+ * 
+ * W.I.P
+ * 
+ * */
+
+
 module.exports = {
   getClassifications, 
   getInventoryByClassificationId,
-  getInventoryByInventoryId
+  getInventoryByInventoryId,
+  addClassification,
+  checkExistingClassificationName,
   };
 

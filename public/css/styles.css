@@ -245,6 +245,11 @@ background-repeat: no-repeat;
 }
 
 
+/* tab links in */
+.links p,a{
+ padding-left: 5%;
+}
+
 @media only screen and (min-width: 700px) { 
 
   body {

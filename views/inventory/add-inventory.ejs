@@ -1,0 +1,27 @@
+<div>
+
+    <% if (title) { %>
+      <h1 id="login_form"><%= title %></h1>
+      <% } else {
+      res.redirect('/')
+    } %>
+  
+    <%- messages() %>
+  
+    <% if (errors) { %>
+      <ul class="notice">
+    <% errors.array().forEach(error => { %>
+      <li><%= error.msg %></li>
+    <%  }) %>
+      </ul>
+    <% } %>
+
+
+    
+
+
+    <div class="links">
+        <p><a href="../../inv">Back to Menu</a></p>
+    </div>
+
+</div>
