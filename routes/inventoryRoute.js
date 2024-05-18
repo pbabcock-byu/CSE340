@@ -27,8 +27,8 @@ router.post(
 router.get("/add-inventory",utilities.handleErrors(invController.buildAddInventory));
 router.post(
     "/add-inventory",
-    //invValidate.inventoryRules(),
-    //invValidate.checkInventoryData,
+    invValidate.inventoryRules(),
+    invValidate.checkInventoryData,
     utilities.handleErrors(invController.addInventory)
     )
 

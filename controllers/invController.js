@@ -139,11 +139,13 @@ invCont.addInventory = async function(req, res){
 
   let nav = await utilities.getNav()
 
+  /*let classificationSelect = await utilities.buildClassificationSelect()*/
   if (invResult) {
-    req.flash("notice",`Congratulations, a new car to the inventory.`)
+    req.flash("notice",`Congratulations, You have added a new car to the inventory.`)
 
-    let classificationSelect = await utilities.buildClassificationSelect()
     
+    let classificationSelect = await utilities.buildClassificationSelect()
+
     res.status(201).render("inventory/add-inventory", {
       title: "Add Inventory",
       nav,
@@ -157,6 +159,7 @@ invCont.addInventory = async function(req, res){
       title: "Add Inventory",
       nav,
       classificationSelect,
+      errors: null,
     })
   }
 }
