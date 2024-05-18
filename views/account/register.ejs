@@ -8,30 +8,34 @@
 
 <%- messages() %>
 
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
 </div>
 
   <form id="login_box" action="/account/register" method="post">
-    <label>First name
+    <label>First name:
       <input type="text" name="account_firstname" id="accountFirstname" required value="<%= locals.account_firstname %>">
     </label> 
-    <label>Last name
+    <label>Last name:
       <input type="text" name="account_lastname" id="accountLastname" required value="<%= locals.account_lastname %>">
     </label>
-    <label>Email ":
-      <input type="email" name="account_email" id="accountEmail" required value="<%= locals.account_email %>">
+    <label>Email:
+      <input type="email" name="account_email" id="accountEmail" required value="<%= locals.account_email %>" placeholder="your_email@example.com">
     </label>
     <div class="input-group">
       <label for="account_password">Password</label>
-      <span>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</span> 
+      <span> must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</span> 
       <input type="password" id="account_password" class="form-control" name="account_password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" required>
-      <!-- pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" -->
-      <button type="button" id="btnToggle" class="show-password" class="toggle">Show Pasword<i id="showpassword" class="showpassword"></i></button>
+      <button type="button" id="btnToggle" class="toggle show-password">Show Pasword<i id="showpassword" class="showpassword"></i></button>
     </div>
     <input class="btn" type="submit" value="Register">
     <!-- <button type="submit" id = "registrationbtn"class="btn">Register</button> -->
   </form>
-
-
-
 
 <script src='/js/script.js'></script>

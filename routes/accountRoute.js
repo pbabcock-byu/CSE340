@@ -5,7 +5,9 @@
     const router = new express.Router() 
     const accountController = require("../controllers/accountController")
     const utilities = require("../utilities/")
-    
+    const regValidate = require('../utilities/account-validation')
+
+
     //an accounts controller
     
        
@@ -28,7 +30,24 @@
     // week 4 Registration view
     router.get("/register", utilities.handleErrors(accountController.buildRegister))
   // week 4 post Registration data to the database
-    router.post("/register", utilities.handleErrors(accountController.registerAccount))
+  //  router.post("/register", utilities.handleErrors(accountController.registerAccount))
+
+  // New validation ofr the post Process the registration data
+  router.post(
+    "/register",
+    regValidate.registationRules(),
+    regValidate.checkRegData,
+    utilities.handleErrors(accountController.registerAccount)
+  )
+
+
+// Process the login attempt
+router.post(
+  "/login",
+  (req, res) => {
+    res.status(200).send('login process')
+  }
+)
 
     //Make sure the route(s) are exported for use elsewhere.
     module.exports = router; 
