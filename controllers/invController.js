@@ -152,13 +152,11 @@ invCont.addInventory = async function(req, res){
     })
   } else {
     let classificationSelect = await utilities.buildClassificationSelect(classification_id)
-
     req.flash("notice", "Sorry, Your inventory could not be added.")
     res.status(501).render("inventory/add-inventory", {
       title: "Add Inventory",
       nav,
       classificationSelect,
-      errors: null,
     })
   }
 }

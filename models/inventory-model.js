@@ -29,6 +29,9 @@ async function getInventoryByClassificationId(classification_id) {
 /* ***************************
  *  Assignment 3 
  *  a function to retrieve the data for a specific vehicle in inventory, based on the inventory id
+ * 
+ *  also used in Assignment 4 : Task 2
+ *  Check if checkExistingClassificationName
  * ************************** */
 
 async function getInventoryByInventoryId(inventory_id) {
@@ -58,20 +61,12 @@ async function addClassification(classification_name){
   }
 }
 
-
 /* ***************************
  *  Assignment 4 : Task 2
  *  Check if checkExistingClassificationName
+ * 
+ * also used function in assignment 3 getInventoryByInventoryId
  * ************************** */
-
- async function getInventoryByInventoryId(inv_id) {
-  try {
-    const data = await pool.query(`SELECT * FROM public.inventory WHERE inv_id = $1`, [inv_id] )
-    return data.rows[0]
-  } catch (error) {
-    console.error("getInventoryByInventoryId error " + error)
-  }
-} 
 
 async function checkExistingClassificationName(classification_name){
   try{
@@ -82,7 +77,6 @@ async function checkExistingClassificationName(classification_name){
     return error.message
   }
 }
-
 
 /* ***************************
  *  Assignment 4 : Task 3
@@ -97,7 +91,6 @@ async function addInventory(inv_make, inv_model, inv_year, inv_description, inv_
     console.error("addInventory error " + error)
   }
 }
-
 
 module.exports = {
   getClassifications, 
