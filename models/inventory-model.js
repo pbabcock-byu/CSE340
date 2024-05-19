@@ -81,7 +81,7 @@ async function checkExistingClassificationName(classification_name){
 /* ***************************
  *  Assignment 4 : Task 3
  *  a function to add a new car + details to a Classification
- * ************************** */
+ * **************************
  
 async function addInventory(inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id) {
   try{
@@ -89,6 +89,15 @@ async function addInventory(inv_make, inv_model, inv_year, inv_description, inv_
     const data = await pool.query(sql, [inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id])
   } catch (error) {
     console.error("addInventory error " + error)
+  }
+} */
+
+async function addInventory(classification_id, inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color) {
+  try {
+    const sql = "INSERT INTO public.inventory (classification_id, inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)"
+    return await pool.query(sql, [classification_id, inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color])
+  } catch (error) {
+    return error.message
   }
 }
 
