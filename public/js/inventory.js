@@ -1,7 +1,7 @@
 'use strict' 
-
- // Get a list of items in inventory based on the classification_id Week 5 - coded given
- let classificationList = document.querySelector("#classificationList")
+ 
+ // Get a list of items in inventory based on the classification_id 
+ let classificationList = document.querySelector("#classification_id")
  classificationList.addEventListener("change", function () { 
   let classification_id = classificationList.value 
   console.log(`classification_id is: ${classification_id}`) 
@@ -22,7 +22,7 @@
   }) 
  })
 
-// Build inventory items into HTML table components and inject into DOM Week 5 - coded given
+ // Build inventory items into HTML table components and inject into DOM 
 function buildInventoryList(data) { 
     let inventoryDisplay = document.getElementById("inventoryDisplay"); 
     // Set up the table labels 
@@ -41,4 +41,4 @@ function buildInventoryList(data) {
     dataTable += '</tbody>'; 
     // Display the contents in the Inventory Management view 
     inventoryDisplay.innerHTML = dataTable; 
-   }
+}

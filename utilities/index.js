@@ -103,10 +103,10 @@ Util.buildDetailGrid = async function(data) {
 
 /* **************************************
 * Assignment 4 tasks 3 
-* This builds the list for  buildClassificationSelect for the add-invertory view
+* This builds the list for  buildClassificationList for the add-invertory view
 * ************************************ */
 
-Util.buildClassificationSelect = async function (classification_id = null) {
+Util.buildClassificationList = async function (classification_id = null) {
   let data = await invModel.getClassifications()
   let classificationList
 

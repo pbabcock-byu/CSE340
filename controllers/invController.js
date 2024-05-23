@@ -49,19 +49,14 @@ invCont.buildByInventoryId = async function(req, res, next) {
 invCont.buildInventoryManager = async function(req, res, next){
   let nav = await utilities.getNav()
   // Added the below line week 5 Select Inventory Items
-  const classificationSelect = await utilities.buildClassificationSelect()
-  res.render("inventory/management",{
+  const classificationSelect = await utilities.buildClassificationList()
+  res.render("./inventory/management",{
       title: "Vehicle Management",
       nav,
       //errors: null,
       classificationSelect,
   })
 }
-
-
-
-
-
 
 /* ***************************
 *  Assignment 4 :Task Two 
@@ -114,7 +109,7 @@ invCont.addClassification = async function(req, res){
 
 invCont.buildAddInventory = async function(req, res, next){
   let nav = await utilities.getNav()
-  let classificationSelect = await utilities.buildClassificationSelect()
+  let classificationSelect = await utilities.buildClassificationList()
   
     res.render("inventory/add-inventory",{
       title: "Add New Inventory",
@@ -136,7 +131,7 @@ invCont.buildAddInventory = async function(req, res, next){
     const inventoryResult = await invModel.addInventory(classification_id, inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color)
   
     if (inventoryResult) {
-      let classificationSelect = await utilities.buildClassificationSelect();
+      let classificationSelect = await utilities.buildClassificationList();
         req.flash(
           "success",
           `You added the vehicle: ${inv_make} ${inv_model} to the inventory`
@@ -148,7 +143,7 @@ invCont.buildAddInventory = async function(req, res, next){
           errors: null,
         })
       } else {
-        let classificationSelect = await utilities.buildClassificationSelect();
+        let classificationSelect = await utilities.buildClassificationList();
         req.flash("notice", "Sorry, the process failed.")
         res.status(501).render("./inventory/add-inventory", {
           title: "Add to Inventory",
