@@ -53,7 +53,8 @@ app.use(function(req, res, next){
 
 // week 5 for the cookieParser: code given
 app.use(cookieParser())
-
+// week 5 middleware function : code given
+app.use(utilities.checkJWTToken)
 
 /* ***********************
  * View Engine and Templates
