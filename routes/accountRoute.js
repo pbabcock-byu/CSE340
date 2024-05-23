@@ -34,7 +34,7 @@
 
     // week 5 coded added 
 
-    router.get("/",utilities.checkLogin, utilities.handleErrors(accountController.accountManagement))
+    //router.get("/",utilities.checkLogin, utilities.handleErrors(accountController.accountManagement))
 
 
 
