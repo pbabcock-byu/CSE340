@@ -35,7 +35,7 @@
     // week 5 coded added 
 
     //router.get("/",utilities.checkLogin, utilities.handleErrors(accountController.accountManagement))
-
+    router.get("/", utilities.handleErrors(accountController.accountManagement))
 
 
   // New validation ofr the post Process the registration data
