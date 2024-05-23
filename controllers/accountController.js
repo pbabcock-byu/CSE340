@@ -2,7 +2,13 @@ const bcrypt = require("bcryptjs")
 const utilities = require('../utilities/')
 const accountModel = require("../models/account-model")
 
-/* const accountController = {} */
+// Week 5 : 2 lines of code given
+// required for the "jsonwebtoken" and "dotenv" packages
+const jwt = require("jsonwebtoken")
+require("dotenv").config()
+
+
+//const accountController = {} 
 
 /* this is for the login page*/
 async function buildLogin(req, res, next) {
@@ -12,7 +18,7 @@ async function buildLogin(req, res, next) {
         title: "Login",
         nav,
         errors: null,
-    });
+    })
 }
 
 /* this is for the registration page*/
@@ -74,4 +80,52 @@ async function registerAccount(req, res) {
   }
 }
 
-module.exports = {buildLogin,buildRegister,registerAccount}
+
+/* ****************************************
+ *  Week 5 Code Given Process login request
+ * ************************************ */
+async function accountLogin(req, res) {
+  let nav = await utilities.getNav()
+  const { account_email, account_password } = req.body
+  const accountData = await accountModel.getemailAccount(account_email)
+  if (!accountData) {
+    req.flash("notice", "Please check your credentials and try again.")
+    res.status(400).render("account/login", {
+      title: "Login",
+      nav,
+      errors: null,
+      account_email,
+  })
+  return
+}
+try {
+  if (await bcrypt.compare(account_password, accountData.account_password)) {
+    delete accountData.account_password
+    const accessToken = jwt.sign(accountData, process.env.ACCESS_TOKEN_SECRET, { expiresIn: 3600 })
+    if(process.env.NODE_ENV === 'development') {
+      res.cookie("jwt", accessToken, { httpOnly: true, maxAge: 3600 * 1000 })
+      } else {
+        res.cookie("jwt", accessToken, { httpOnly: true, secure: true, maxAge: 3600 * 1000 })
+      }
+    return res.redirect("/account/")
+  }
+} catch (error) {
+  return new Error('Access Forbidden')
+}
+}
+
+ /* ****************************************
+ *  Week 5 created
+ * Build the function in the accountController to process the request and deliver the view.
+ * ************************************ */
+ async function accountManagement(req, res, next){
+  let nav = await utilities.getNav()
+  res.render("account/management",{
+      title: "Account Management",
+      nav,
+      errors: null,
+  })
+}
+ 
+
+module.exports = {buildLogin,buildRegister,registerAccount,accountLogin,accountManagement}

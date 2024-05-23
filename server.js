@@ -22,6 +22,9 @@ const accountRoute = require("./routes/accountRoute")
 // Week 4 in order to collect the values from the incoming request body
 const bodyParser = require("body-parser")
 
+//Week 5 cookie-parser: Code given
+const cookieParser = require("cookie-parser")
+
 /* ***********************
  * Middleware
  * ************************/
@@ -48,6 +51,8 @@ app.use(function(req, res, next){
   next()
 })
 
+// week 5 for the cookieParser: code given
+app.use(cookieParser())
 
 
 /* ***********************

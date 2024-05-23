@@ -1,0 +1,24 @@
+<div>
+
+    <% if (title) { %>
+      <h1 id="login_form"><%= title %></h1>
+      <% } else {
+      res.redirect('/')
+    } %>
+  
+    <%- messages() %>
+  
+    <% if (errors) { %>
+      <ul class="notice">
+    <% errors.array().forEach(error => { %>
+      <li><%= error.msg %></li>
+    <%  }) %>
+      </ul>
+    <% } %>
+
+
+    <p>You're Logged in</p>
+    <p>You have reached the Account Management View</p>
+
+</div>
+  
