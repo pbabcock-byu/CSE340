@@ -65,11 +65,12 @@ async function registerAccount(req, res) {
   if (regResult) {
     req.flash(
       "notice",
-      `Congratulations, you\'re registered ${account_firstname}. Please log in.`
+      `Congratulations ${account_firstname}, you are registered . Please log in.`
     )
     res.status(201).render("account/login", {
       title: "Login",
       nav,
+      errors: null,
     })
   } else {
     req.flash("notice", "Sorry, the registration failed.")
@@ -116,7 +117,7 @@ try {
 
  /* ****************************************
  *  Week 5 created
- * Build the function in the accountController to process the request and deliver the view.
+ * Build the function in the accountController to process the request and deliver the account Managementview.
  * ************************************ */
  async function accountManagement(req, res, next){
   let nav = await utilities.getNav()

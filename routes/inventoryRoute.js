@@ -39,6 +39,8 @@ router.get("/type/:classificationId", utilities.handleErrors(invController.build
 // Route to build inventory by inventory detail view
 router.get("/detail/:inventoryId",utilities.handleErrors(invController.buildByInventoryId));
 
-
+// added week 5 
+// Get inventory for AJAX Route - Select inv item activity 
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
 
 module.exports = router;

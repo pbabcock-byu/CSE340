@@ -8,7 +8,7 @@ async function getClassifications(){
 }
 
 /* ***************************
- *  Get all inventory items and classification_name by classification_id
+ *  Get all inventory items and classification_name by classification_id Code Given
  * ************************** */
 async function getInventoryByClassificationId(classification_id) {
   try {
