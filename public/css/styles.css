@@ -251,7 +251,7 @@ background-repeat: no-repeat;
 
 
 /* add imventory page */
-#inv_description {
+.inv_description {
   height: 200px;
   width: 100%;
 }

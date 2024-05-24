@@ -41,9 +41,19 @@ router.get("/detail/:inventoryId",utilities.handleErrors(invController.buildByIn
 
 // added week 5 
 // Get inventory for AJAX Route - Select inv item activity 
-router.get(
-    "/getInventory/:classification_id", 
-    utilities.handleErrors(invController.getInventoryJSON)
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+
+// added week 5
+//Update Inventory Information (Step 1)
+router.get("/edit/:inventoryId", utilities.handleErrors(invController.buildEditInventory))
+
+// added week 5
+// (Step 2)
+router.post(
+    "/update/",
+    invValidate.inventoryRules(),
+    invValidate.checkUpdateData,
+    invController.updateInventory(invController.addInventory)
 )
 
 module.exports = router;

@@ -1,0 +1,69 @@
+<div>
+    <% if (title) { %>
+      <h1 id="login_form"><%= title %></h1>
+      <% } else {
+      res.redirect('/')
+    } %>
+  
+    <%- messages() %>
+  
+    <% if (errors) { %>
+      <ul class="notice">
+    <% errors.array().forEach(error => { %>
+      <li><%= error.msg %></li>
+    <%  }) %>
+      </ul>
+    <% } %>
+
+
+    <form id="login_box"  action="/inv/update" method="post">
+    
+        <label for="classification_id">Classification</label>
+        <br>
+        <%- classificationSelect %>
+        <br>
+        <br>
+        <label for="edit_make">Make</label>
+        <input type="text" id="edit_make" name="inv_make" minlength="3" placeholder="Min of 3 characters" required value="<%= locals.inv_make %>">
+    
+        <label for="edit_model">Model</label>
+        <input type="text" id="edit_model" name="inv_model" minlength="3" placeholder="Min of 3 characters" required value="<%= locals.inv_model %>">
+       
+        <label for="edit_description">Description</label>
+        <br>
+        <textarea id="edit_description" class="inv_description" name="inv_description" rows="3" required><%= locals.inv_description %></textarea>
+        <br>
+        <br>
+        <label for="edit_image">Image Path</label>
+        <input type="text" id="edit_image" name="inv_image" placeholder="Blank Image" required value="<%= locals.inv_image %>">
+    
+        <label for="edit_thumbnail">Thumbnail Path</label>
+        <input type="text" id="edit_thumbnail" name="inv_thumbnail" placeholder="Blank Thumbnail" required value="<%= locals.inv_thumbnail %>">
+    
+        <label for="edit_price">Price</label>
+        <input type="text" id="edit_price" name="inv_price" placeholder="decimal or integer"  required value="<%= locals.inv_price %>">
+    
+        <label for="edit_year">Year</label>
+        <input type="text" id="edit_year" name="inv_year" placeholder="4-digit Year" required pattern="\d{4}"   required value=" <%= locals.inv_year %>">
+
+        <label for="edit_miles">Miles</label>
+        <input type="text" id="edit_miles" name="inv_miles" placeholder="digits only" required pattern="\d+"  required value=" <%= locals.inv_miles %>">
+    
+        <label for="edit_color">Color</label>
+        <input type="text" id="edit_color" name="inv_color" required value="<%= locals.inv_color %>">
+    
+        <button type="submit" class="btn">Update Vehicle Data</button>
+        
+        <input type="hidden" name="inv_id"
+        <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+        <% } %>>    
+
+
+    </form>
+
+
+    <div class="links">
+        <p><a href="../../inv">Back to Menu</a></p>
+    </div>
+
+</div>
