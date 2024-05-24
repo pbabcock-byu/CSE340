@@ -171,8 +171,6 @@ invCont.getInventoryJSON = async (req, res, next) => {
   }
 }
 
-
-
 /* ***************************
   *  Assignment 5 :Update Inventory Information (Step 1)
   *  load and Edit invent details
@@ -211,7 +209,7 @@ invCont.buildEditInventory = async function (req, res, next) {
   * Update Vehicle Data Information (Step 2)
   * ************************** */
 
-module.exports = invCont.updateInventory = async function (req, res, next) {
+invCont.updateInventory = async function (req, res, next) {
   let nav = await utilities.getNav()
   const {
     inv_id,
@@ -267,3 +265,5 @@ module.exports = invCont.updateInventory = async function (req, res, next) {
     })
   }
 }
+
+module.exports = invCont

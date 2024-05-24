@@ -49,11 +49,9 @@ router.get("/edit/:inventoryId", utilities.handleErrors(invController.buildEditI
 
 // added week 5
 // (Step 2)
-router.post(
-    "/update/",
+router.post("/update/",
     invValidate.inventoryRules(),
     invValidate.checkUpdateData,
-    invController.updateInventory(invController.addInventory)
-)
+    utilities.handleErrors(invController.updateInventory))
 
 module.exports = router;
