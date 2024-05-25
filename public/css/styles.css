@@ -1,13 +1,13 @@
-
-
 /*  pnpm run start - to start the server then open browser and put in http://localhost:5500/ */
 
-/******* Change Box Model ***************/
+/* Get fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Merriweather&display=swap');
 
+/******* Change Box Model ***************/
 *,
 *:before,
 *:after {
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
 
 :root {
@@ -30,35 +30,57 @@
   --textbackground-color: #D6DBDB;
   --primaryboarders: black;
 
-  /* Possible Fonts to use on page */
-  --heading-font: "Merriweather", serif;
-  --paragraph-font: "Georgia", Times;
-  --link-font: "Verdana", Geneva, sans-serif;
+  /* Fonts to use on page */
+  --heading-font: "Montserrat", sans-serif;
+  --paragraph-font: "Merriweather", serif;
 }
 
 /*h1,h2,h3,h4,h5,th, a href {
   font-size: 100%;
 }*/
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+}
+
+body {
+  background-image: url("/images/site/small_check.jpg");
+  margin: 0;
+  padding: 1em 0;
+  font-family: var(--paragraph-font);
+}
+
+#wrapper {
+  margin: 0 auto;
+  background-color: white;
+}
 
 /* formating the header links */
 
 #top-header a {
   text-decoration: none;
   color: var(--primaryblocks-color);
-  padding: 20px;
+  font-family: var(--heading-font);
+  margin: 0 auto;
+  padding: 0;
 }
 
 .siteName {
   font-weight: bolder;
   font-size: 3rem;
-  font-family: var(--heading-font);
+  padding: 0.5em;
 }
 
 #tools {
-  color: antiquewhite;
   text-align: right;
   align-items: flex-end;
+  padding: 1em;
+  font-weight: bolder;
 }
 
 /* formating the main points listed  */
@@ -70,28 +92,28 @@
 /* Nav links  */
 
 /* .primarynavbar */ 
-nav{
-  background-color: var(--primaryblocks-color);
-  text-align: center;
-  margin: 1%;
-  margin-top: 10px;
-
-}
-
-/*.primarynavbar li */
-nav li, nav a {
-  display: inline-block;
-  color:var(--primary-color);
-  color: white;
-  padding: 2%;
+nav ul {
   list-style-type: none;
-  line-height: 0.5em;
+  background-color: var(--primaryblocks-color);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 
+nav li a {
+  font-size: 1rem; 
+  text-align: center;
+  text-decoration: none;
+  padding: 0.5rem 1rem; 
+  display: block;
+  color: var(--infoblocks-color);
 }
-nav a:hover {
-  color: pink;
-  transform: scale(1.03);
+
+nav li a:hover {
+  background-color: var(--mbfbackground-color);
+  color: var(--primarytxt-color);
 }
+
 
 /* CSE motors main image*/
 
@@ -114,7 +136,6 @@ main h1 {
   opacity: 0.9;
   color: rgb(38, 111, 207);
   font-size: 10px; 
-  
 } 
 
 .mainimage img {
@@ -147,7 +168,6 @@ table.mainimgtable th.uptxt  {
 
 
 /*  Vehicles Details   */
-
 #det-invimg img {
   width: 100%;
   border: 5px solid var(--primaryboarders);
@@ -190,15 +210,17 @@ table.mainimgtable th.uptxt  {
   margin: 0 auto;
 }
 
-.btn {
+.btn, .btn1 {
   display: inline-block;
-  background: blue;
+  background: var(--secondary-color);
   padding: .5em 2em;
-  color: white;
+  color: var(--primary-color);
   margin-right: .5em;
 }
+
 .btn :hover {
-  background-color :pink;
+  background-color: var(--mbfbackground-color);
+  color: var(--primarytxt-color);
 }
 
 .btnD {
@@ -225,11 +247,9 @@ input {
   border-bottom: 1px solid #eaeaea;
   padding-bottom: 1.25em;
   color: #757575;
-
 }
 
 .show-password {
-
   margin-bottom: 1rem;
   background-color:white;
   padding: 0.5em;
@@ -250,12 +270,10 @@ background-position: right top;
 background-repeat: no-repeat;
 }
 
-
 /* tab links in */
 .links p,a{
  padding-left: 5%;
 }
-
 
 /* add imventory page */
 .inv_description {
@@ -263,22 +281,67 @@ background-repeat: no-repeat;
   width: 100%;
 }
 
-@media only screen and (min-width: 700px) { 
+/* SELECT Drop-Down */
+select {
+  font-family: var(--heading-font);
+  padding: 0.5em;
+  margin: auto 6px;
+  background-color: var(--mbfbackground-color);
+  color: var(--primarytxt-color);
+  font-weight: bold;
+}
 
+/* Table formatting */
+table {
+  border-collapse: collapse;
+  border: 2px solid var(--mbfbackground-color);
+  table-layout: auto;
+  width: 100%;
+}
+
+tr,
+td {
+  padding: 15px;
+}
+
+table,
+td,
+tr {
+  border-bottom: 2px solid var(--mbfbackground-color);
+}
+
+thead {
+  background-color: var(--primarytxt-color);
+  color: var(--primary-color);
+  font-family: var(--heading-font);
+  font-size: 1.3rem;
+}
+
+table a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+
+
+/* ***************************************************
+        CSS Rules for 700px and larger screens
+ **************************************************** */
+
+@media only screen and (min-width: 700px) { 
   body {
-      background-image: url("/images/site/small_check.jpg");
-      margin: 0;
-      padding: 0;
+      background-image: url("/images/site/checkerboard.jpg");
   }
+
   #wrapper {
-      max-width: 960px;
-      margin: 0 auto;
-      border: 5px solid blue;
-      border-radius: 8px;
-      background-color: white;
+    margin: 0 auto;
+    max-width: 960px;
+    background-color: white;
+    border: 5px solid var(--primaryblocks-color);
+    border-radius: 8px;
   }
     
-
   /*h1,h2,h3,h4,h5,th,p, a href, li {
       font-size: 100%;
   }
@@ -288,14 +351,11 @@ background-repeat: no-repeat;
     }*/
 
 /* Nav links  */
-
 nav li {
-font-size: 100%;
-padding: 5%;
+  float: left;
 }
 
 /* CSE motors main image*/
-
 .containerdiv { 
   /*float: left; */
   position: relative; 
@@ -309,18 +369,15 @@ font-size: 100%;
   float: right;  
 }
 
-
 .mainreviewdata li {   
   padding-bottom: 5%;
   text-align: left;
   font-size: 105%;
-  
 }
 
 .mainimgtable, .mainupgrades h2 {
   width: 40%;
   padding-left: 5%;
-
 }
 
 /*  Vehicles Details   */
@@ -331,15 +388,10 @@ font-size: 100%;
   column-gap: 0.5rem;
 }
 
-
 #det-invdetails {
   display: grid;
   grid-column: 2/3;
 }
 
 
-
 }
-
-
-
