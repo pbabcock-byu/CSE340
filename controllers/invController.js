@@ -154,9 +154,6 @@ invCont.buildAddInventory = async function(req, res, next){
       }
   }
 
-
-
-
 /* ***************************
 *  Week 5 :Code GIven 
 *  Build the Controller Function
@@ -173,15 +170,13 @@ invCont.getInventoryJSON = async (req, res, next) => {
 
 /* ***************************
   *  Assignment 5 :Update Inventory Information (Step 1)
-  *  load and Edit invent details
+  *  load the invent details read for editing
   * Code provided except Name
   * ************************** */
 
 invCont.buildEditInventory = async function (req, res, next) {
-//invCont.editInventoryView = async function (req, res, next) {
     const inventoryId = parseInt(req.params.inventoryId)
     let nav = await utilities.getNav()
-    //const itemData = await invModel.getInventoryById(inventoryId)
     const itemData = await invModel.getInventoryByInventoryId(inventoryId)
     const classificationSelect = await utilities.buildClassificationList(itemData.classification_id)
     const itemName = `${itemData.inv_make} ${itemData.inv_model}`
@@ -206,7 +201,7 @@ invCont.buildEditInventory = async function (req, res, next) {
 
 /* ***************************
   *  Assignment 5 : Data Provided
-  * Update Vehicle Data Information (Step 2)
+  * Update Vehicle Data Information in the DB (Step 2)
   * ************************** */
 
 invCont.updateInventory = async function (req, res, next) {
@@ -262,6 +257,63 @@ invCont.updateInventory = async function (req, res, next) {
     inv_miles,
     inv_color,
     classification_id
+    })
+  }
+}
+
+
+
+/* ***************************
+  *  Assignment 5 : Delete  Vehicle Data
+  * Build the view for the Vehicle that is to be deleted (Step 1)
+  * ************************** */
+
+invCont.loadDeleteInventory = async function (req, res, next) {
+ 
+  const inventoryId = parseInt(req.params.inventoryId);
+  let nav = await utilities.getNav()
+  const itemData = await invModel.getInventoryByInventoryId(inventoryId)
+  res.render('inventory/delete-confirm', {
+    title: `Preparing to Delete: ${itemData.inv_make} ${itemData.inv_model}`,
+    nav,
+    inv_id: itemData.inv_id,
+    inv_make: itemData.inv_make,
+    inv_model: itemData.inv_model,
+    inv_year: itemData.inv_year,
+    inv_price: itemData.inv_price,
+    errors: null,
+  })
+}
+
+
+  
+/* ***************************
+  *  Assignment 5 : Delete  Vehicle Data
+  * DELETE THE Vehicle DATA (Step 2)
+  * ************************** */
+invCont.deleteInventory = async function(req, res){
+  let nav = await utilities.getNav()
+  const {inv_id, inv_make, inv_model, inv_year } = req.body
+  const deleteResult = await invModel.deleteInventory(
+    inv_id,
+    inv_make, 
+    inv_model, 
+    inv_year
+  )
+
+  if (deleteResult) {
+    req.flash("notice",`${inv_make} ${inv_model} was successfully deleted from the system.`)
+    res.redirect("/inv/")
+  } else {
+    req.flash("notice", "Sorry, your delete failed.")
+    res.status(501).render("inventory/delete-inventory", {
+      title: `Preparing to Delete: ${itemData.inv_make} ${itemData.inv_model}`,
+      nav,
+      errors: null,
+      inv_id,
+      inv_make,
+      inv_model,
+      inv_year
     })
   }
 }

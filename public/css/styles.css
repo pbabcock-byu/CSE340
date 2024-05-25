@@ -201,6 +201,13 @@ table.mainimgtable th.uptxt  {
   background-color :pink;
 }
 
+.btnD {
+  display: inline-block;
+  background: red;
+  padding: .5em 2em;
+  color: white;
+  margin-right: .5em;
+} 
 
 form {
   display: block;

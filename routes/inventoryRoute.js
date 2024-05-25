@@ -54,4 +54,19 @@ router.post("/update/",
     invValidate.checkUpdateData,
     utilities.handleErrors(invController.updateInventory))
 
+// added week 5: Delete for get Route
+//  Add a "get" route to match the path that already exists in the inventory management view for the "Delete" link.
+router.get('/delete/:inventoryId', utilities.handleErrors(invController.loadDeleteInventory))
+router.post('/delete/',utilities.handleErrors(invController.deleteInventory)
+)
+
+
+//router.get("/delete/:inventoryId", utilities.checkLogin, utilities.checkAuthorization, utilities.handleErrors(invController.buildDeleteByInventoryId));
+//router.post("/delete/",
+//    utilities.checkLogin, 
+//    utilities.checkAuthorization, 
+//    utilities.handleErrors(invController.deleteInventory)
+//)
+
 module.exports = router;
+
