@@ -124,17 +124,7 @@ Util.buildClassificationList = async function (classification_id = null) {
 }
   
   
-/* ****************************************
- * Middleware For Handling Errors
- * Wrap other function in this for 
- * General Error Handling
- **************************************** */
 
-Util.handleErrors = function(fn) {
-  return function(req, res, next) {
-      fn(req, res, next).catch(next);
-  }
-}
 
 
 /* ****************************************
@@ -174,7 +164,43 @@ Util.checkLogin = (req, res, next) => {
  }
 
 
+ /* ****************************************
+* Week 5 assignment task 2 - 
+* Check for Admin || Employee account_type before
+* allowing access to /inv. If Client, redirect to /account/login 
+* ************************************ */
 
+
+
+Util.invAccess = (req, res, next) => {
+
+  const account_type = res.locals.accountData.account_type
+  if (account_type === 'Employee' || account_type === 'Admin') {
+
+  //const account_type = res.locals.account_type
+
+  //if (account_type === 'Admin' || account_type === 'Employee') { 
+    next()
+  } else {
+    req.flash("notice", "Access denied");
+    return res.redirect("/account/login");
+  }
+}
+
+
+
+
+/* ****************************************
+ * Middleware For Handling Errors
+ * Wrap other function in this for 
+ * General Error Handling
+ **************************************** */
+
+Util.handleErrors = function(fn) {
+  return function(req, res, next) {
+      fn(req, res, next).catch(next);
+  }
+}
 
 module.exports = Util
 

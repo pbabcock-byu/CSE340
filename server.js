@@ -72,7 +72,14 @@ app.use(static)
 // Index route
 app.get("/", utilities.handleErrors(baseController.buildHome))
 // Inventory routes
-app.use("/inv", inventoryRoute)
+//app.use("/inv", inventoryRoute)
+// Protect Inv Route so only Admin || Employee have access, else redirect to login 
+//app.use("/inv", utilities.invAccess, inventoryRoute)
+//app.use("/inv/add-classification", utilities.invAccess, inventoryRoute)
+//app.use("/inv", utilities.invAccess, inventoryRoute)
+//app.get("/", utilities.invAccess,buildInventoryManager)
+
+
 
 // Week 4 Enable the Account Route
 app.use("/account",accountRoute)

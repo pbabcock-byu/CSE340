@@ -201,13 +201,13 @@ table.mainimgtable th.uptxt  {
 
 /*  Login page + Registration   */
 
-#login_box, .login_box {
+#login_box, .login_box, #upUser_box, #upPass_box {
   background-color:var(--secondaryblocks-color);
   padding: 1.5rem 1rem;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 85%;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 
 .btn, .btn1 {
