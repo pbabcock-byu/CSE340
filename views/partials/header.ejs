@@ -1,9 +1,16 @@
 <header id="top-header">
 
-
-
   <div id="tools">
-    <%- dynamicHeader %>
+    <% if (locals.loggedin == 1) { %>
+      <div id='header-greeting'>
+
+          <a href="/account/" title="Click to Manage Account">Welcome <%- locals.accountData.account_firstname %></a>
+          <br>
+          <a href="/account/logout" title="Click to Logout">Logout</a>
+      </div>
+  <% } else { %>
+      <a href="/account/login" title="Click to log in">My Account</a>
+  <% } %>
   </div>
   
   <span class="siteName">

@@ -174,26 +174,7 @@ Util.checkLogin = (req, res, next) => {
  }
 
 
-/* ****************************************
-* Week 5 Assignment point 1 
-* Rebuild header 
-* show logout
-* Show welcome name and Log out IF LOGGED IN
- * ************************************ */
-Util.getDynamicHeader = async function (accountData){
-  let dynamicHeader
 
-  if(accountData){
-    const firstname = accountData.account_firstname
-
-    dynamicHeader = `<a title="Click to Manage Account" href="/account/">Welcome ${firstname}</a>`
-    dynamicHeader += `<a title="Click to Logout" href="/account/logout/">Logout</a>`
-  }else{
-    dynamicHeader = `<a title="Click to log in" href="/account/">My Account</a>`
-  }
-
-  return dynamicHeader
-}
 
 module.exports = Util
 
