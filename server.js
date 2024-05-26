@@ -69,22 +69,14 @@ app.set("layout", "./layouts/layout") // not at views root
  * Routes
  *************************/
 app.use(static)
-// Index route
-app.get("/", utilities.handleErrors(baseController.buildHome))
+// Index route Old one
+app.get("/",utilities.handleErrors(baseController.buildHome))
+
 // Inventory routes
-//app.use("/inv", inventoryRoute)
-// Protect Inv Route so only Admin || Employee have access, else redirect to login 
-//app.use("/inv", utilities.invAccess, inventoryRoute)
-//app.use("/inv/add-classification", utilities.invAccess, inventoryRoute)
-//app.use("/inv", utilities.invAccess, inventoryRoute)
-//app.get("/", utilities.invAccess,buildInventoryManager)
-
-
+app.use("/inv", inventoryRoute)
 
 // Week 4 Enable the Account Route
 app.use("/account",accountRoute)
-
-
 
 // Must be last route in list. If a route is not found it will use this error function - must be last route in list
 app.use(async (req, res, next) => {

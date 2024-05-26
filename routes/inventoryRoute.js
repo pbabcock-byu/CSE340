@@ -11,7 +11,9 @@ router.get("/type/:classificationId", invController.buildByClassificationId);
 router.get("/detail/:inventoryId", invController.buildByInventoryId);
 
 // Assignment 4: task 1 Manually entered route to build inventory management view
-router.get("/", utilities.handleErrors(invController.buildInventoryManager));
+// added utilities.invAccess to restrict access to the inv updates
+// Protect Inv Route so only Admin || Employee have access, else redirect to login 
+router.get("/", utilities.invAccess, utilities.handleErrors(invController.buildInventoryManager));
 
 
 // Assignment 4: task 2 Route to build the add classification view
