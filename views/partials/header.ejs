@@ -1,16 +1,10 @@
 <header id="top-header">
 
-  <div id="tools">
-    <% if (locals.loggedin == 1) { %>
-        <div class="loginHeader">
-            <a href="/account/" title="Review Your Profile" class="account-links">Welcome  <%- userName %></a>
-            <a href="/account/logout" title="Click to log out" class="account-links">Logout</a>
-        </div>
-    <% } else { %>
-        <a href="/account/login" title="Click to log in">My Account</a>
-    <% } %>
-  </div>
 
+
+  <div id="tools">
+    <%- dynamicHeader %>
+  </div>
   
   <span class="siteName">
     <a href="/" title="Return to home page">CSE Motors</a>

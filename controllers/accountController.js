@@ -13,10 +13,15 @@ require("dotenv").config()
 /* this is for the login page*/
 async function buildLogin(req, res, next) {
     let nav = await utilities.getNav();
+
+    const loginData = res.locals.accountData
+    let dynamicHeader = await utilities.getDynamicHeader(loginData)
+
     //const grid = await utilities.buildLogin();
     res.render("account/login", {
         title: "Login",
         nav,
+        dynamicHeader,
         errors: null,
     })
 }
