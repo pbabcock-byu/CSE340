@@ -1,7 +1,7 @@
 let passwordInput = document.getElementById('account_password'),
     toggle = document.getElementById('btnToggle'),
     icon =  document.getElementById('showpassword');
-
+ 
 function togglePassword() {
   if (passwordInput.type === 'password') {
     passwordInput.type = 'text';
@@ -13,7 +13,7 @@ function togglePassword() {
     //toggle.innerHTML = 'show';
   }
 }
-
+ 
 function checkInput() {
   //if (passwordInput.value === '') {
   //toggle.style.display = 'none';
@@ -23,6 +23,6 @@ function checkInput() {
   //  toggle.style.display = 'block';
   //}
 }
-
+ 
 toggle.addEventListener('click', togglePassword, false);
 passwordInput.addEventListener('keyup', checkInput, false);

@@ -56,6 +56,18 @@
   utilities.handleErrors(accountController.accountLogin) 
 )
 
+// week 5 assignement step 4
+// Update uses details
+
+router.get("/edit/:accountId", utilities.handleErrors(accountController.buildEditByAccountId));
+router.post("/edit-user",
+   // regValidate.editRules(),
+    //regValidate.checkEditData,
+    utilities.handleErrors(accountController.editUser)
+);
+
+
+router.get("/update-user", utilities.handleErrors(accountController.buildUpdateUser))
 
 //Make sure the route(s) are exported for use elsewhere.
 module.exports = router; 

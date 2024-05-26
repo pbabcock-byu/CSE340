@@ -169,7 +169,7 @@ table.mainimgtable th.uptxt  {
 
 /*  Vehicles Details   */
 #det-invimg img {
-  width: 100%;
+  width: 95%;
   border: 5px solid var(--primaryboarders);
   border-radius: 10px;
 

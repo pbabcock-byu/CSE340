@@ -14,8 +14,6 @@ require("dotenv").config()
 async function buildLogin(req, res, next) {
     let nav = await utilities.getNav();
 
-
-
     //const grid = await utilities.buildLogin();
     res.render("account/login", {
         title: "Login",
@@ -132,4 +130,19 @@ try {
 }
  
 
-module.exports = {buildLogin,buildRegister,registerAccount,accountLogin,accountManagement}
+ /* ****************************************
+ *  Week 5 Assignement created step 4
+ *  You will create a new view where clients can update their account data - first name, last name, email address and password:
+ * ************************************ */
+
+ 
+ async function buildUpdateUser (req, res) {
+  let nav = await utilities.getNav();
+  res.render("account/update-user", {
+      title: "Update Account",
+      nav,
+      errors: null,
+  });
+  }
+
+module.exports = {buildLogin,buildRegister,registerAccount,accountLogin,accountManagement,buildUpdateUser}
