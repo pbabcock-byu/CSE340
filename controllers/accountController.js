@@ -218,6 +218,18 @@ try {
 }
 
 
+ /* ****************************************
+ *  Week 5 Assignement step 6
+ *  logout process 
+ * ************************************ */
+
+
+async function accountLogOut(req, res) {
+  res.clearCookie('jwt'); 
+  req.flash("notice", "You are logged out")
+  res.redirect('/'); 
+};
+
 module.exports = {
   buildLogin,
   buildRegister,
@@ -227,4 +239,5 @@ module.exports = {
   buildUpdateUser,
   updateUserInfo,
   updateUserPassword,
+  
 }
