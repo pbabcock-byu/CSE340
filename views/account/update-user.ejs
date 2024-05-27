@@ -31,11 +31,10 @@
       <label>Email:</label>
       <input type="email" name="account_email" placeholder="email@example.com" required value="<%= locals.accountData.account_email %>">
      
-      <input type="hidden" name="account_id"
-      <% if(locals.account_id) { %> value="<%= locals.account_id %>"
-      <% } %>>
+      <input type="hidden" name="account_id" required value="<%= locals.accountData.account_id %>">
 
       <button type="submit" class="btn">Update Information</button>
+
     </fieldset>
 </form>
 

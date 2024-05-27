@@ -61,13 +61,20 @@
 // create the view
 router.get("/update-user/:accountId", utilities.handleErrors(accountController.buildEditByAccountId));
 
-// post the changes back to the database
+// post the USER changes back to the database
 router.post("/update-user",
    // regValidate.editRules(),
     //regValidate.checkEditData,
     utilities.handleErrors(accountController.updateUserInfo)
 );
 
+
+// post the PASSWORD change back to the database
+router.post("/update-user",
+   // regValidate.editRules(),
+    //regValidate.checkEditData,
+    utilities.handleErrors(accountController.updateUserPassword)
+);
 
 router.get("/update-user", utilities.handleErrors(accountController.buildUpdateUser))
 

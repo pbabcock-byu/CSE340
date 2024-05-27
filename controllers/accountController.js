@@ -146,8 +146,8 @@ try {
 
 
  /* ****************************************
- *  Week 6 Assignement created step 5
- *  You will create a new view where clients can update their account data - first name, last name, email address and password:
+ *  Week 5 Assignement created step 5
+ *  Users can update their account data - first name, last name, email address:
  * ************************************ */
 
  async function updateUserInfo (req, res) {
@@ -176,6 +176,55 @@ try {
     }
   }
 
+ /* ****************************************
+ *  Week 5 Assignement created step 5
+ *  Users can update their Password
+ * ************************************ */
+ async function updateUserPassword(req, res) {
+  const { account_id, account_password } = req.body
+
+  // Hash the password before storing
+  let hashedPassword
+  try {
+    // regular password and cost (salt is generated automatically)
+    hashedPassword = bcrypt.hashSync(account_password, 10)
+  } catch (error) {
+    req.flash("notice", 'Sorry, there was an error updating your password.')
+    res.status(500).render("account/edit-account", {
+      title: "Edit User Information",
+      nav,
+      errors: null,
+      account_id
+    })
+  }
+
+  const updateResult = await accountModel.updateUserPassword(
+    account_id,
+    hashedPassword
+  )
+  if (updateResult) {
+    req.flash("notice","Your password was successfully changed.")
+    return res.redirect("/account")
+
+  } else {
+    req.flash("notice", "Sorry, the update failed.")
+    res.status(501).render("account/update-user", {
+      title: "Edit User Information",
+      nav,
+      errors: null,
+      account_id,
+    })
+  }
+}
 
 
-module.exports = {buildLogin,buildRegister,registerAccount,accountLogin,accountManagement,buildUpdateUser,updateUserInfo}
+module.exports = {
+  buildLogin,
+  buildRegister,
+  registerAccount,
+  accountLogin,
+  accountManagement,
+  buildUpdateUser,
+  updateUserInfo,
+  updateUserPassword,
+}
