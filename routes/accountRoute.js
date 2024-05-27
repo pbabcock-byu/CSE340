@@ -79,8 +79,7 @@ router.post("/update-user",
 router.get("/update-user", utilities.handleErrors(accountController.buildUpdateUser))
 
 
-router.get("/logout", utilities.handleErrors(accountController,accountController.accountLogin))
-
+router.get("/logout", utilities.handleErrors(accountController.accountLogOut))
 
 
 //Make sure the route(s) are exported for use elsewhere.

@@ -159,6 +159,11 @@ try {
       account_email
     )
   
+    const UserNewdetails = await accountModel.getUserInfobyId(account_id)
+    res.locals.accountData.account_firstname = UserNewdetails.account_firstname
+    res.locals.accountData.account_lastname = UserNewdetails.account_lastname
+    res.locals.accountData.account_email = UserNewdetails.account_email
+
     if (updateResult) {
       req.flash("notice", "Your Information has been updated.")
       return res.redirect("/account")
@@ -197,6 +202,8 @@ try {
       account_id
     })
   }
+
+
 
   const updateResult = await accountModel.updateUserPassword(
     account_id,
@@ -239,5 +246,5 @@ module.exports = {
   buildUpdateUser,
   updateUserInfo,
   updateUserPassword,
-  
+  accountLogOut,
 }

@@ -82,4 +82,20 @@ try {
 }
 
 
-module.exports =  {registerAccount,checkExistingEmail,getAccountByEmail,updateUserInfo,updateUserPassword};
+/* *****************************
+* Week 5 Assignment: step 5
+* need to repull info to change vaules after update
+* ***************************** */
+
+async function getUserInfobyId (account_id) {
+  try {
+    const result = await pool.query(
+      'SELECT account_id, account_firstname, account_lastname, account_email FROM public.account WHERE account_id = $1',[account_id])
+    return result.rows[0]
+  } catch (error) {
+    return new Error("Error with Account ID")
+  }
+}
+
+
+module.exports =  {registerAccount,checkExistingEmail,getAccountByEmail,updateUserInfo,updateUserPassword,getUserInfobyId};
