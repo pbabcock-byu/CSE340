@@ -98,4 +98,11 @@ async function getUserInfobyId (account_id) {
 }
 
 
-module.exports =  {registerAccount,checkExistingEmail,getAccountByEmail,updateUserInfo,updateUserPassword,getUserInfobyId};
+module.exports =  {
+  registerAccount,
+  checkExistingEmail,
+  getAccountByEmail,
+  updateUserInfo,
+  updateUserPassword,
+  getUserInfobyId
+};
