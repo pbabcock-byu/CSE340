@@ -5,9 +5,9 @@
     <% } else {
     res.redirect('/')
   } %>
-
+ 
   <%- messages() %>
-
+ 
   <% if (errors) { %>
     <ul class="notice">
   <% errors.array().forEach(error => { %>
@@ -15,32 +15,32 @@
   <%  }) %>
     </ul>
   <% } %>
-
+ 
 </div>
-
-
+ 
+ 
 <form id="upUser_box" action="/account/update-user" method="post">
       <fieldset><legend><h3>Update User information</h3></legend>
-
-      <label>First Name:</label>
-      <input type="text" name="account_firstname" required value="<%= locals.accountData.account_firstname %>">
+ 
+      <label for="account_firstname">First Name:</label>
+      <input type="text" name="account_firstname" id="account_firstname" required value="<%= locals.accountData.account_firstname %>">
      
-      <label>Last Name:</label>
-      <input type="text" name="account_lastname" required value="<%= locals.accountData.account_lastname %>">
+      <label for="account_lastname">Last Name:</label>
+      <input type="text" name="account_lastname" id="account_lastname" required value="<%= locals.accountData.account_lastname %>">
      
-      <label>Email:</label>
-      <input type="email" name="account_email" placeholder="email@example.com" required value="<%= locals.accountData.account_email %>">
+      <label for="account_email">Email:</label>
+      <input type="email" name="account_email" id="account_email" placeholder="email@example.com" required value="<%= locals.accountData.account_email %>">
      
-      <input type="hidden" name="account_id" required value="<%= locals.accountData.account_id %>">
-
+      <input type="hidden" name="account_id" value="<%= locals.accountData.account_id %>">
+ 
       <button type="submit" class="btn">Update Information</button>
-
+ 
     </fieldset>
 </form>
-
+ 
 <form id="upPass_box" action="#">
 <fieldset><legend><h3>Update User Password</h3></legend>
-
+ 
 <div class="input-group">
   <label for="account_password">Password</label>
   <span> must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</span>
@@ -53,5 +53,6 @@
 <% } %>
 </fieldset>
 </form>
-
+ 
 <script src='/js/script.js'></script>
+
