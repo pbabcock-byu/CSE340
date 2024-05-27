@@ -41,6 +41,24 @@ async function getAccountByEmail (account_email) {
   }
 }  
 
+/* *****************************
+* Week 5 Assignment: step 5
+* Update the user info
+* ***************************** */
+async function updateUserInfo(account_id, account_firstname, account_lastname, account_email){
+  try {    
+    console.error("Update User tried: " )
+    const sql = 
+      "UPDATE account SET account_firstname = $1, account_lastname = $2, account_email = $3 WHERE account_id = $4 RETURNING *"
+    const data =  await pool.query(sql, [account_firstname, account_lastname, account_email, account_id])
+    console.error("Update User: " + (sql, [account_firstname, account_lastname, account_email, account_id]))
+    return data.rows[0]
+  } catch (error) {
+    console.error("Update User: " )
+    console.error("model error: " + error)
+    return error.message
+  }
+}
 
 
-module.exports =  {registerAccount,checkExistingEmail,getAccountByEmail};
+module.exports =  {registerAccount,checkExistingEmail,getAccountByEmail,updateUserInfo};

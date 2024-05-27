@@ -135,7 +135,6 @@ try {
  *  You will create a new view where clients can update their account data - first name, last name, email address and password:
  * ************************************ */
 
- 
  async function buildUpdateUser (req, res) {
   let nav = await utilities.getNav();
   res.render("account/update-user", {
@@ -145,4 +144,38 @@ try {
   });
   }
 
-module.exports = {buildLogin,buildRegister,registerAccount,accountLogin,accountManagement,buildUpdateUser}
+
+ /* ****************************************
+ *  Week 6 Assignement created step 5
+ *  You will create a new view where clients can update their account data - first name, last name, email address and password:
+ * ************************************ */
+
+ async function updateUserInfo (req, res) {
+    const { account_id, account_firstname, account_lastname, account_email } = req.body
+    const updateResult = await accountModel.updateUserInfo(
+      account_id,
+      account_firstname,
+      account_lastname,
+      account_email
+    )
+  
+    if (updateResult) {
+      req.flash("notice", "Your Information has been updated.")
+      return res.redirect("/account")
+  
+    } else {
+      req.flash("notice", "Sorry, the update failed.")
+      res.status(501).render("account/update-user", {
+        title: "Edit User Information",
+        nav,
+        errors: null,
+        account_id,
+        account_firstname,
+        account_lastname,
+      })
+    }
+  }
+
+
+
+module.exports = {buildLogin,buildRegister,registerAccount,accountLogin,accountManagement,buildUpdateUser,updateUserInfo}

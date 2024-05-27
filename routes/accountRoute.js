@@ -58,16 +58,21 @@
 
 // week 5 assignement step 4
 // Update uses details
+// create the view
+router.get("/update-user/:accountId", utilities.handleErrors(accountController.buildEditByAccountId));
 
-router.get("/edit/:accountId", utilities.handleErrors(accountController.buildEditByAccountId));
-router.post("/edit-user",
+// post the changes back to the database
+router.post("/update-user",
    // regValidate.editRules(),
     //regValidate.checkEditData,
-    utilities.handleErrors(accountController.editUser)
+    utilities.handleErrors(accountController.updateUserInfo)
 );
 
 
 router.get("/update-user", utilities.handleErrors(accountController.buildUpdateUser))
+
+
+
 
 //Make sure the route(s) are exported for use elsewhere.
 module.exports = router; 
