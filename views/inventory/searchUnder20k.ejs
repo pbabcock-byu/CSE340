@@ -1,0 +1,32 @@
+<div>
+
+    <% if (title) { %>
+      <h1 id="login_form"><%= title %></h1>
+      <% } else {
+      res.redirect('/')
+    } %>
+  
+    <%- messages() %>
+  
+    <% if (errors) { %>
+        <ul class="notice">
+      <% errors.array().forEach(error => { %>
+        <li><%= error.msg %></li>
+      <%  }) %>
+        </ul>
+    <% } %>
+  
+ 
+</div>
+  
+<!-- links to get to the inv management pages -->
+
+    <h2>Manage Inventory</h2>
+    <p>Choose a classification to see those inventory items.</p>
+    <%- classificationSelect %>
+    <table id="inventoryDisplay"></table>
+
+    <noscript>JavaScript must be enabled to use this page.</noscript>
+
+
+<script src="../../js/inventory.js"></script>

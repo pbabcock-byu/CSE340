@@ -165,9 +165,9 @@ try {
     //res.locals.account_firstname = UserNewdetails.account_firstname
     //res.account_firstname = UserNewdetails.account_firstname
     //locals.account_firstname = UserNewdetails.account_firstname
-    
-    //res.locals.accountData.account_lastname = UserNewdetails.account_lastname
-    //res.locals.accountData.account_email = UserNewdetails.account_email
+    res.locals.accountData.account_lastname = UserNewdetails.account_firstname
+    res.locals.accountData.account_lastname = UserNewdetails.account_lastname
+    res.locals.accountData.account_email = UserNewdetails.account_email
     //accountLogin()
     //res.render.accountData(res.locals.accountData.account_firstname)
 
