@@ -74,6 +74,7 @@ try {
     account_password, 
     account_id
   ])
+  console.log(sql)
   return data.rows[0]
 } catch (error) {
   console.error("model error: " + error)

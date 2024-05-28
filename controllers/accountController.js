@@ -182,15 +182,14 @@ async function updateUserInfo (req, res) {
 }
 
 
-
-
- /* ****************************************
+/* ****************************************
  *  Week 5 Assignement created step 5
  *  Users can update their Password
  * ************************************ */
  async function updateUserPassword(req, res) {
+  let nav = await utilities.getNav();
   const { account_id, account_password } = req.body
-
+ 
   // Hash the password before storing
   let hashedPassword
   try {
@@ -205,7 +204,7 @@ async function updateUserInfo (req, res) {
       account_id
     })
   }
-
+  console.log(account_id, account_password, hashedPassword)
   const updateResult = await accountModel.updateUserPassword(
     account_id,
     hashedPassword
@@ -213,7 +212,7 @@ async function updateUserInfo (req, res) {
   if (updateResult) {
     req.flash("notice","Your password was successfully changed.")
     return res.redirect("/account")
-
+ 
   } else {
     req.flash("notice", "Sorry, the update failed.")
     res.status(501).render("account/update-user", {
@@ -224,6 +223,9 @@ async function updateUserInfo (req, res) {
     })
   }
 }
+ 
+
+  
 
 
  /* ****************************************

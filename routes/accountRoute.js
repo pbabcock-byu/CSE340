@@ -69,14 +69,13 @@ router.post("/update-user",
 
 
 // post the PASSWORD change back to the database
-router.post("/update-user",
+router.post("/update-pass",
    // regValidate.editRules(),
     //regValidate.checkEditData,
     utilities.handleErrors(accountController.updateUserPassword)
 );
 
 router.get("/update-user", utilities.handleErrors(accountController.buildUpdateUser))
-
 
 router.get("/logout", utilities.handleErrors(accountController.accountLogOut))
 
