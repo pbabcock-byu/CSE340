@@ -150,43 +150,39 @@ try {
  *  Users can update their account data - first name, last name, email address:
  * ************************************ */
 
- async function updateUserInfo (req, res) {
-    const { account_id, account_firstname, account_lastname, account_email } = req.body
-    const updateResult = await accountModel.updateUserInfo(
-      account_id,
-      account_firstname,
-      account_lastname,
-      account_email
-    )
-    
-    const UserNewdetails = await accountModel.getUserInfobyId(account_id)
-    //res.clearCookie()
-    //res.locals.accountData.account_firstname("jwt")= UserNewdetails.account_firstname
-    //res.locals.account_firstname = UserNewdetails.account_firstname
-    //res.account_firstname = UserNewdetails.account_firstname
-    //locals.account_firstname = UserNewdetails.account_firstname
-    res.locals.accountData.account_lastname = UserNewdetails.account_firstname
-    res.locals.accountData.account_lastname = UserNewdetails.account_lastname
-    res.locals.accountData.account_email = UserNewdetails.account_email
-    //accountLogin()
-    //res.render.accountData(res.locals.accountData.account_firstname)
-
-    if (updateResult) {
-      req.flash("notice", "Your Information has been updated.")
-      return res.redirect("/account")
+async function updateUserInfo (req, res) {
+  let nav = await utilities.getNav();
+  const { account_id, account_firstname, account_lastname, account_email} = req.body
+  const updateResult = await accountModel.updateUserInfo(account_id, account_firstname, account_lastname, account_email)
   
-    } else {
-      req.flash("notice", "Sorry, the update failed.")
-      res.status(501).render("account/update-user", {
-        title: "Edit User Information",
-        nav,
-        errors: null,
-        account_id,
-        account_firstname,
-        account_lastname,
-      })
-    }
+  if (!updateResult) {
+    req.flash("notice", "We couldn't update the account information.")
+    res.status(400).render("account/update", {
+    title: "Update Account",
+    nav,
+    errors: null,
+    account_firstname,
+    account_lastname,
+    account_email,
+    })
+    return
   }
+  // update locals with updated info
+  const updatedInfo = await accountModel.getUserInfobyId(account_id)
+  res.locals.accountData.account_firstname = updatedInfo.account_firstname
+  res.locals.accountData.account_lastname = updatedInfo.account_lastname
+  res.locals.accountData.account_email = updatedInfo.account_email
+
+  req.flash("success", "Your account information has been updated.")
+  res.render("./account/update-user", {
+      title: "Update Account",
+      nav,
+      errors: null,
+  });
+}
+
+
+
 
  /* ****************************************
  *  Week 5 Assignement created step 5

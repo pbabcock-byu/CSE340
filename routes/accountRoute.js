@@ -7,7 +7,6 @@
     const utilities = require("../utilities/")
     const regValidate = require("../utilities/account-validation")
 
-
     //an accounts controller
     
        
