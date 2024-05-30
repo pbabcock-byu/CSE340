@@ -202,6 +202,44 @@ Util.handleErrors = function(fn) {
   }
 }
 
+
+
+/* ****************************************
+ * Week 6 building list
+
+ **************************************** */
+Util.sortList = async function (classification_id = null) {
+
+  //let data = await invModel.getClassifications()
+  let sortList
+ 
+  //sortList = `<select id="classification_id" name="classification_id" required>`
+   /* data.rows.forEach(element => {
+      classificationList += `<option value="` + element.classification_id + `"`
+      if (classification_id != null && element.classification_id == classification_id){
+        classificationList += ` selected`
+      }
+      classificationList += `>` + element.classification_name + `</option>`
+    });
+  classificationList += `</select>` */
+
+  sortList=`
+    <select id="sortList" name="sortList">
+    <option>Select a sort option</option>
+      <option value="classification_name">classification Name</option>
+      <option value="inv_make">Make</option>
+      <option value="inv_model">Model</option>
+      <option value="inv_year">Year</option>
+      <option value="inv_year">Year</option>
+      <option value="inv_miles">Miles</option>
+      <option value="inv_price">Price</option>
+    </select>`
+  
+  return sortList
+
+}
+
+
 module.exports = Util
 
 

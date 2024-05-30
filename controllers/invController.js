@@ -324,7 +324,7 @@ invCont.getSortVehList = async function ( req, res, next ) {
   console.log("Made it to InvController")
   //const inventoryDisplayList = parseInt(req.params.inventoryId);
   let nav = await utilities.getNav()
-  const classificationSelect = await utilities.buildClassificationList()
+  const sortList = await utilities.sortList()
   const itemData = await invModel.getSortVehList()
   console.log("Made it pass SQL")
   res.render('./inventory/sort-vehlist',{
@@ -338,7 +338,7 @@ invCont.getSortVehList = async function ( req, res, next ) {
     inv_year: itemData.inv_year,
     inv_miles: itemData.inv_miles,
     inv_price: itemData.inv_price,
-    classificationSelect,
+    sortList,
     errors: null,
   })
 }
