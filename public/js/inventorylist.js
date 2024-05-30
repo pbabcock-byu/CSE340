@@ -25,7 +25,7 @@
 
 
 
-// Build inventory items into HTML table components and inject into DOM
+// Build inventory items into HTML table components and inject into DOM   
 function inventorySortList(data) {
     let inventoryDisplaySort = document.getElementById("inventoryDisplaySort");
     // Set up the table labels
