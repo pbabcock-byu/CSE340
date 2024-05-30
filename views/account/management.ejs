@@ -1,21 +1,21 @@
 <div>
 
-    <% if (title) { %>
-      <h1 id="login_form"><%= title %></h1>
-      <% } else {
-      res.redirect('/')
-    } %>
-  
-    <%- messages() %>
-  
-    <% if (errors) { %>
-      <ul class="notice">
-    <% errors.array().forEach(error => { %>
-      <li><%= error.msg %></li>
-    <%  }) %>
-      </ul>
-    <% } %>
+  <% if (title) { %>
+    <h1 id="login_form"><%= title %></h1>
+    <% } else {
+    res.redirect('/')
+  } %>
 
+  <%- messages() %>
+
+  <% if (errors) { %>
+    <ul class="notice">
+  <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+  <%  }) %>
+    </ul>
+  <% } %>
+</div>  
 
 <div id="login_box">
   
@@ -34,4 +34,3 @@
   <% } %>
 
 </div>
-  

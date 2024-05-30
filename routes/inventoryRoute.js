@@ -62,13 +62,9 @@ router.get('/delete/:inventoryId', utilities.handleErrors(invController.loadDele
 router.post('/delete/',utilities.handleErrors(invController.deleteInventory)
 )
 
+// My projects
+router.get("/sort-vehlist", utilities.handleErrors(invController.getSortVehList))
 
-//router.get("/delete/:inventoryId", utilities.checkLogin, utilities.checkAuthorization, utilities.handleErrors(invController.buildDeleteByInventoryId));
-//router.post("/delete/",
-//    utilities.checkLogin, 
-//    utilities.checkAuthorization, 
-//    utilities.handleErrors(invController.deleteInventory)
-//)
 
 module.exports = router;
 

@@ -318,4 +318,28 @@ invCont.deleteInventory = async function(req, res){
   }
 }
 
+
+/* this is for the Sort Invent page*/
+invCont.inventoryDisplayList = async function ( res) {
+  console.log("Made it to InvController")
+  //const inventoryDisplayList = parseInt(req.params.inventoryId);
+  let nav = await utilities.getNav()
+  const itemData = await invModel.getSortVehList()
+  console.log("Made it pass SQL")
+  res.render('inventory/sort-vehlist', {
+    title: `List of our Inventory`,
+    nav,
+    inv_id: itemData.inv_id,
+    classification_name: itemData.classification_name,
+    inv_make: itemData.inv_make,
+    inv_model: itemData.inv_model,
+    inv_color: itemData.inv_color,    
+    inv_year: itemData.inv_year,
+    inv_miles: itemData.inv_miles,
+    inv_price: itemData.inv_price,
+    errors: null,
+  })
+}
+
+
 module.exports = invCont

@@ -149,6 +149,22 @@ async function deleteInventory(inv_id) {
 }
 
 
+/* ***************************
+ *  Show sorted Inventory List
+* Final week
+ * ************************** */
+// need to add to the function the sort by name and Order of list (ASC Dec)
+async function getSortVehList() {
+  try {
+    const sql = 'SELECT * FROM inventory i join classification cl on cl.classification_id = i.classification_id ORDER BY $1 $2'
+    const data = await pool.query(sql,"INV_PRICE","ASC")
+  return data
+  } catch (error) {
+    new Error("Error in building Inventory List")
+  }
+}
+
+
 module.exports = {
   getClassifications, 
   getInventoryByClassificationId,
@@ -158,5 +174,6 @@ module.exports = {
   addInventory,
   updateInventory,
   deleteInventory,
+  getSortVehList,
   };
 
