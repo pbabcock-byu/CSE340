@@ -63,8 +63,7 @@ router.post('/delete/',utilities.handleErrors(invController.deleteInventory)
 )
 
 // My projects
-router.get("/sort-vehlist", utilities.handleErrors(invController.getSortVehList))
-
+router.get("/sort-vehlist/",utilities.handleErrors(invController.getSortVehList))
 
 module.exports = router;
 

@@ -8,27 +8,47 @@
   
     <%- messages() %>
   
-    <% if (errors) { %>
-        <ul class="notice">
-      <% errors.array().forEach(error => { %>
-        <li><%= error.msg %></li>
-      <%  }) %>
-        </ul>
-    <% } %>
-  
- 
 </div>
   
-<!-- links to get to the inv management pages -->
+
+<h2>Manage Inventory</h2>
+<p>Choose a classification to see those inventory items.</p>
+
+
+<noscript>JavaScript must be enabled to use this page.</noscript>
+
+
+
+
+
 
     <h2>Manage Inventory</h2>
     <p>Choose a classification to see those inventory items.</p>
-    <!-- <%- classificationSelect %>-->
-    <!-- <table id="inventoryDisplay"></table> -->
 
-    <table id="inventoryDisplayList"></table>
+
+
+
+  <table>
+    <tr>
+      <td>Classification</td> 
+      <td>Make</td>  
+      <td>Model</td>
+      <td>Color</td>
+      <td>Year</td>
+      <td>Miles</td>
+      <td>Price</td>
+  </tr> 
+</table>
+    
+
+
+<%- classificationSelect %>
+<table id="inventoryDisplay"></table>
+
+<table id="inventoryDisplaySort"></table>
+<script src="../../js/inventory.js"></script>
+<script src="../../js/inventorylist.js"></script>
 
     <noscript>JavaScript must be enabled to use this page.</noscript>
 
-
-<script src="../../js/inventorylist.js"></script>
+    

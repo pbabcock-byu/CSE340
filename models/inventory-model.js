@@ -155,13 +155,19 @@ async function deleteInventory(inv_id) {
  * ************************** */
 // need to add to the function the sort by name and Order of list (ASC Dec)
 async function getSortVehList() {
+  console.log("Got to the Inv Model")
   try {
-    const sql = 'SELECT * FROM inventory i join classification cl on cl.classification_id = i.classification_id ORDER BY $1 $2'
-    const data = await pool.query(sql,"INV_PRICE","ASC")
+    //const sql = 'SELECT * FROM inventory i join classification cl on cl.classification_id = i.classification_id ORDER BY $1 $2'
+    const sql = 'SELECT * FROM inventory i join classification cl on cl.classification_id = i.classification_id ORDER BY INV_PRICE ASC'
+    
+    //const data = await pool.query(sql,"INV_PRICE","ASC")
+    const data = await pool.query(sql)
+    console.log(sql)
   return data
   } catch (error) {
     new Error("Error in building Inventory List")
   }
+  
 }
 
 

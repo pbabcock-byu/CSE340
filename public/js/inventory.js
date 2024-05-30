@@ -1,6 +1,7 @@
 'use strict' 
  
  // Get a list of items in inventory based on the classification_id 
+ console.log("GOT YA") 
  let classificationList = document.querySelector("#classification_id")
  classificationList.addEventListener("change", function () { 
   let classification_id = classificationList.value 

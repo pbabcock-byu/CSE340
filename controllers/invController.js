@@ -292,6 +292,7 @@ invCont.loadDeleteInventory = async function (req, res, next) {
   * DELETE THE Vehicle DATA (Step 2)
   * ************************** */
 invCont.deleteInventory = async function(req, res){
+  
   let nav = await utilities.getNav()
   const {inv_id, inv_make, inv_model, inv_year } = req.body
   const deleteResult = await invModel.deleteInventory(
@@ -318,16 +319,16 @@ invCont.deleteInventory = async function(req, res){
   }
 }
 
-
 /* this is for the Sort Invent page*/
-invCont.inventoryDisplayList = async function ( res) {
+invCont.getSortVehList = async function ( req, res, next ) {
   console.log("Made it to InvController")
   //const inventoryDisplayList = parseInt(req.params.inventoryId);
   let nav = await utilities.getNav()
+  const classificationSelect = await utilities.buildClassificationList()
   const itemData = await invModel.getSortVehList()
   console.log("Made it pass SQL")
-  res.render('inventory/sort-vehlist', {
-    title: `List of our Inventory`,
+  res.render('./inventory/sort-vehlist',{
+    title: "List of our Inventory",
     nav,
     inv_id: itemData.inv_id,
     classification_name: itemData.classification_name,
@@ -337,6 +338,7 @@ invCont.inventoryDisplayList = async function ( res) {
     inv_year: itemData.inv_year,
     inv_miles: itemData.inv_miles,
     inv_price: itemData.inv_price,
+    classificationSelect,
     errors: null,
   })
 }
