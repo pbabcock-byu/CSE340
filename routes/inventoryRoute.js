@@ -63,7 +63,8 @@ router.post('/delete/',utilities.handleErrors(invController.deleteInventory)
 )
 
 // My projects
-router.get("/sort-vehlist/",utilities.handleErrors(invController.getSortVehList))
+router.get("/sort-vehlist/",invController.buildByPrice)
+//router.get("/type/:classificationId", invController.buildByClassificationId);
 
 module.exports = router;
 

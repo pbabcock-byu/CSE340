@@ -14,6 +14,8 @@ Util.getNav = async function (req, res, next) {
   console.log(data)
   let list = "<ul>"
   list += '<li><a href="/" title="Home page">Home</a></li>'
+  // added for the sort page
+  list += '<li><a href="inv/sort-vehlist" title="Sort page">Sort</a></li>'
   data.rows.forEach((row) => {
     list += "<li>"
     list +=
@@ -71,13 +73,13 @@ Util.buildClassificationGrid = async function(data){
 /* **************************************
 * Assignment 3 
 * file that will take the specific vehicle's information and wrap it up in HTML to deliver to the view
-* ************************************ */
+* ************************************ 
 
 Util.buildDetailGrid = async function(data) {
   let grid
   grid = `<h1>Car make: ${data.inv_make}</h1>`
   return grid
-}
+}*/
 
 Util.buildDetailGrid = async function(data) {
   let grid
@@ -236,6 +238,44 @@ Util.sortList = async function (classification_id = null) {
   return sortList
 
 }
+
+
+
+
+/* **************************************
+* Build the classification view HTML
+* ************************************ */
+
+Util.buildSortGrid = async function(data){
+  let grid
+  if(data.length > 0){
+    grid = '<ul id="inv-display">'
+    data.forEach(vehicle => { 
+      grid += '<li>'
+      grid +=  '<a href="../../inv/detail/'+ vehicle.inv_id 
+      + '" title="View ' + vehicle.inv_make + ' '+ vehicle.inv_model 
+      + 'details"><img src="' + vehicle.inv_thumbnail 
+      +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
+      +' on CSE Motors" /></a>'
+      grid += '<div class="namePrice">'
+      grid += '<hr />'
+      grid += '<h2>'
+      grid += '<a href="../../inv/detail/' + vehicle.inv_id +'" title="View ' 
+      + vehicle.inv_make + ' ' + vehicle.inv_model + ' details">' 
+      + vehicle.inv_make + ' ' + vehicle.inv_model + '</a>'
+      grid += '</h2>'
+      grid += '<span>$' 
+      + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</span>'
+      grid += '</div>'
+      grid += '</li>'
+    })
+    grid += '</ul>'
+  } else { 
+    grid += '<p class="notice">Sorry, no vehicles data could be found.</p>'
+  }
+  return grid
+}
+
 
 
 module.exports = Util

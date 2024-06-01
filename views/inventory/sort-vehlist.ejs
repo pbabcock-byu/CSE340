@@ -8,45 +8,28 @@
   
     <%- messages() %>
   
-    <% if (errors) { %>
-      <ul class="notice">
-    <% errors.array().forEach(error => { %>
-      <li><%= error.msg %></li>
-    <%  }) %>
-      </ul>
-    <% } %>
+    <%- grid %>
 
 </div>
   
 
 
-<p>Choose how you would like to sort this inventory List.</p>
-
-<%- sortList %>
-
-<noscript>JavaScript must be enabled to use this page.</noscript>
-<p></p>
-
-
-  <table>
-    <tr>
-      <td>Classification</td> 
-      <td>Make</td>  
-      <td>Model</td>
-      <td>Color</td>
-      <td>Year</td>
-      <td>Miles</td>
-      <td>Price</td>
-  </tr> 
+<table>
+  <tr>
+    <td>Classification</td> 
+    <td>Make</td>  
+    <td>Model</td>
+    <td>Color</td>
+    <td>Year</td>
+    <td>Miles</td>
+    <td>Price</td>
+</tr> 
 </table>
+
+
     
 
 
-
-<table id="inventoryDisplay"></table>
-
-
-<script src="../../js/inventorylist.js"></script>
 
 
 

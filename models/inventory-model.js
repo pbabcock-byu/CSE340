@@ -163,7 +163,7 @@ async function getSortVehList() {
     //const data = await pool.query(sql,"INV_PRICE","ASC")
     const data = await pool.query(sql)
     console.log(sql)
-  return data
+  return data.rows
   } catch (error) {
     new Error("Error in building Inventory List")
   }
