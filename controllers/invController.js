@@ -352,20 +352,11 @@ invCont.getSortVehList = async function ( req, res, next ) {
 //invCont.buildByClassificationId = async function (req, res, next) {
 invCont.buildByPrice = async function (req, res, next) {  
   console.log("Got to buildByPrice")
-  //const classification_id = req.params.classificationId
-  // dont need the line above
-
-  //const data = await invModel.getInventoryByClassificationId(classification_id)
-  const data = await invModel.getSortVehList()
-  
-  //const grid = await utilities.buildClassificationGrid(data)
+  const data = await invModel.getSortVehList() 
   const grid = await utilities.buildSortGrid(data)
-
   let nav = await utilities.getNav()
-  //const className = data[0].classification_name
-  
+
   res.render("./inventory/sort-vehlist", {
-  //res.render("./sort-vehlist", {
     title: "Vehicles sorted by price",
     nav,
     grid,

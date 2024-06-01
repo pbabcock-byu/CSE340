@@ -246,35 +246,34 @@ Util.sortList = async function (classification_id = null) {
 * Build the classification view HTML
 * ************************************ */
 
-Util.buildSortGrid = async function(data){
-  let grid
-  if(data.length > 0){
-    grid = '<ul id="inv-display">'
-    data.forEach(vehicle => { 
-      grid += '<li>'
-      grid +=  '<a href="../../inv/detail/'+ vehicle.inv_id 
-      + '" title="View ' + vehicle.inv_make + ' '+ vehicle.inv_model 
-      + 'details"><img src="' + vehicle.inv_thumbnail 
-      +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
-      +' on CSE Motors" /></a>'
-      grid += '<div class="namePrice">'
-      grid += '<hr />'
-      grid += '<h2>'
-      grid += '<a href="../../inv/detail/' + vehicle.inv_id +'" title="View ' 
-      + vehicle.inv_make + ' ' + vehicle.inv_model + ' details">' 
-      + vehicle.inv_make + ' ' + vehicle.inv_model + '</a>'
-      grid += '</h2>'
-      grid += '<span>$' 
-      + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</span>'
-      grid += '</div>'
-      grid += '</li>'
-    })
-    grid += '</ul>'
-  } else { 
-    grid += '<p class="notice">Sorry, no vehicles data could be found.</p>'
+Util.buildSortGrid = async function (data) {
+  let grid = "<thead>";
+  let carprice = 0;
+  let carmiles = 0;
+  if (data.length > 0) {
+    grid +=
+      "<tr><td>Make</td><td>Model</td><td>Color</td><td>Year</td><td>Miles</td><td>Price</td></tr>";
+    grid += "</thead>";
+    grid += "<tbody>";
+    // Iterate over all vehicles in inventory and put each in a row
+    data.forEach(function (element) {
+      //console.log(element.inv_id + ", " + element.inv_model);
+      grid += `<tr><td>${element.inv_make} </td>`;
+      grid += `<td>${element.inv_model}</td>`;
+      grid += `<td>${element.inv_color}</td>`;
+      grid += `<td>${element.inv_year}</td>`;
+      carmiles = (new Intl.NumberFormat('en-US').format(element.inv_miles))
+      grid += `<td>${carmiles}</td>`;
+      carprice = "$" + (new Intl.NumberFormat('en-US').format(element.inv_price))
+      //grid += `<td>${new Intl.NumberFormat('en-US').format{element.inv_price}</td>`;
+      grid += `<td>${carprice}</td>`;
+      //$${new Intl.NumberFormat('en-US').format(data.inv_price)}</span>
+      grid += `</tr>`;
+    });
+    grid += "</tbody>";
+    return grid;
   }
-  return grid
-}
+};
 
 
 
