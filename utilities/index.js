@@ -229,7 +229,6 @@ Util.sortList = async function (classification_id = null) {
       <option value="inv_make">Make</option>
       <option value="inv_model">Model</option>
       <option value="inv_year">Year</option>
-      <option value="inv_year">Year</option>
       <option value="inv_miles">Miles</option>
       <option value="inv_price">Price</option>
     </select>`

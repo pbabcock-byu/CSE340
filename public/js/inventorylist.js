@@ -4,14 +4,9 @@
  let classificationList = document.querySelector("#sortList_id");
  classificationList.addEventListener("change", function () { 
    let sortList_id = classificationList.value;
-   console.log(`sortList_id is: ${sortList_id}`);
-   
-   // Assuming you have a function to fetch or filter data based on sortList_id
-   fetchData(sortList_id).then(data => {
-     inventorySortList(data);
-   }).catch(error => {
-     console.error('Error fetching data:', error);
-   });
+   //console.log(`sortList_id is: ${sortList_id}`);
+   inventorySortList(data);
+
  });
 
 
