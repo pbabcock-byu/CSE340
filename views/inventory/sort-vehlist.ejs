@@ -8,6 +8,14 @@
   
     <%- messages() %>
   
+    <% if (errors) { %>
+      <ul class="notice">
+    <% errors.array().forEach(error => { %>
+      <li><%= error.msg %></li>
+    <%  }) %>
+      </ul>
+    <% } %>
+
 </div>
   
 
@@ -37,10 +45,10 @@
 
 <table id="inventoryDisplay"></table>
 
-<table id="inventoryDisplaySort"></table>
 
 <script src="../../js/inventorylist.js"></script>
 
-    <noscript>JavaScript must be enabled to use this page.</noscript>
 
-    
+
+
+

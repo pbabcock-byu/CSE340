@@ -1,33 +1,24 @@
-'use strict' 
- 
- // Get a list of items in inventory based on the classification_id 
- let classificationList = document.querySelector("#classification_id")
- classificationList.addEventListener("change", function () { 
-  let classification_id = classificationList.value 
-  console.log(`classification_id is: ${classification_id}`) 
-  let classIdURL = "/inv/getInventory/"+classification_id 
-  fetch(classIdURL) 
-  .then(function (response) { 
-   if (response.ok) { 
-    return response.json(); 
-   } 
-   throw Error("Network response was not OK"); 
-  }) 
-  .then(function (data) { 
-   console.log(data); 
-   buildInventoryList(data); 
-  }) 
-  .catch(function (error) { 
-   console.log('There was a problem: ', error.message) 
-  }) 
- })
+ 'use strict';
 
+ // Get a list of items in inventory based on the classification_id 
+ let classificationList = document.querySelector("#sortList_id");
+ classificationList.addEventListener("change", function () { 
+   let sortList_id = classificationList.value;
+   console.log(`sortList_id is: ${sortList_id}`);
+   
+   // Assuming you have a function to fetch or filter data based on sortList_id
+   fetchData(sortList_id).then(data => {
+     inventorySortList(data);
+   }).catch(error => {
+     console.error('Error fetching data:', error);
+   });
+ });
 
 
 
 // Build inventory items into HTML table components and inject into DOM   
 function inventorySortList(data) {
-    let inventoryDisplaySort = document.getElementById("inventoryDisplaySort");
+    let inventoryDisplay = document.getElementById("inventoryDisplay");
     // Set up the table labels
     let dataTable = '<thead>';
     dataTable += '<tr><th>Sorted Vehicle Information</th><td>&nbsp;</td><td>&nbsp;</td></tr>';

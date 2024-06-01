@@ -223,10 +223,9 @@ Util.sortList = async function (classification_id = null) {
     });
   classificationList += `</select>` */
 
-  sortList=`
-    <select id="sortList" name="sortList">
+  sortList=`<select id="sortList_id" name="sortList_id" required>
     <option>Select a sort option</option>
-      <option value="classification_name">classification Name</option>
+      <option value="classification_name">classification</option>
       <option value="inv_make">Make</option>
       <option value="inv_model">Model</option>
       <option value="inv_year">Year</option>

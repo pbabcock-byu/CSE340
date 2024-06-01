@@ -339,6 +339,7 @@ invCont.getSortVehList = async function ( req, res, next ) {
     inv_miles: itemData.inv_miles,
     inv_price: itemData.inv_price,
     sortList,
+    itemData,
     errors: null,
   })
 }
